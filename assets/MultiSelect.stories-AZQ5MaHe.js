@@ -1,0 +1,16 @@
+import{j as r}from"./jsx-runtime-Cw0GR0a5.js";import{r as P}from"./index-CTjT7uj6.js";import{h as C,s as w}from"./control-BLWnEcik.js";import{M as S}from"./MultiSelect-B08dJCRv.js";import{L as y}from"./List-BbC8tYAN.js";import{S as H}from"./Section-DSzLtwdd.js";import"./classNames-BjxpnYM-.js";import"./function-0hL7Y8C6.js";import"./react-BrYeE0c6.js";import"./dayjs.min-CDLQcmce.js";import"./dom-vh0E4EzA.js";import"./WarningIcon-WmplKgkK.js";import"./FormInput-BeAMhBmZ.js";import"./usePlatform-CpmMXCo-.js";import"./Typography-CVAv-OXT.js";import"./SectionItem-D2_IzEdn.js";import"./Tappable-BlvX034W.js";import"./Popper-Teh4hUR-.js";import"./index-BbmHap-z.js";import"./RootRenderer-CHk-kF8s.js";import"./equal-CbjX1LbP.js";import"./useEnsureControl-BAPFfoUT.js";import"./Chip-D3dFZno5.js";import"./SectionHeader-85L6bVwp.js";import"./Divider-BPGmi9o0.js";import"./SectionFooter-CRZTi1Kq.js";const ee={title:"Forms/MultiSelect",component:S,parameters:{layout:"fullscreen"},argTypes:{...C("options","startAdornment","renderOption","value","defaultValue","filterFn","creatable"),...w(["header"],"text")}},O=[{value:"mac",label:"macOS"},{value:"linux",label:"Linux"},{value:"windows",label:"Windows"},{value:"ios",label:"iOS"},{value:"android",label:"Android"},{value:"web",label:"Web"},{value:"other",label:"Other"}],a=e=>r.jsx(y,{style:{minHeight:"360px",background:"var(--tg-theme-bg-color)"},children:r.jsx(e,{})}),n=e=>{const[h,g]=P.useState([]),{sectionHeader:b,...k}=e;return r.jsx(H,{header:b,children:r.jsx(S,{header:"Platforms",...k,placeholder:"Select platform",options:O,value:h,onChange:v=>g(v)})})},o={render:e=>r.jsx(n,{sectionHeader:"Pick from existed options",...e}),decorators:[a]},t={args:{closeDropdownAfterSelect:!0},render:e=>r.jsx(n,{sectionHeader:"Pick from existed options and hide",...e}),decorators:[a]},s={args:{creatable:e=>`Create new platform: ${e}`},render:e=>r.jsx(n,{sectionHeader:"Type something inside and press enter or option in list",...e}),decorators:[a]};var i,p,c;o.parameters={...o.parameters,docs:{...(i=o.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  render: props => <StoryBookComponent sectionHeader="Pick from existed options" {...props} />,
+  decorators: [decorator]
+}`,...(c=(p=o.parameters)==null?void 0:p.docs)==null?void 0:c.source}}};var d,m,l;t.parameters={...t.parameters,docs:{...(d=t.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  args: {
+    closeDropdownAfterSelect: true
+  },
+  render: props => <StoryBookComponent sectionHeader="Pick from existed options and hide" {...props} />,
+  decorators: [decorator]
+}`,...(l=(m=t.parameters)==null?void 0:m.docs)==null?void 0:l.source}}};var u,f,x;s.parameters={...s.parameters,docs:{...(u=s.parameters)==null?void 0:u.docs,source:{originalSource:`{
+  args: {
+    creatable: val => \`Create new platform: \${val}\`
+  },
+  render: props => <StoryBookComponent sectionHeader="Type something inside and press enter or option in list" {...props} />,
+  decorators: [decorator]
+}`,...(x=(f=s.parameters)==null?void 0:f.docs)==null?void 0:x.source}}};const re=["Pick","PickAndHideDropdown","CreateOptionInInput"];export{s as CreateOptionInInput,o as Pick,t as PickAndHideDropdown,re as __namedExportsOrder,ee as default};

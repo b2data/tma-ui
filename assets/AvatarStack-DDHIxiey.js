@@ -1,0 +1,3 @@
+import{j as t}from"./jsx-runtime-Cw0GR0a5.js";import{c as n}from"./classNames-BjxpnYM-.js";import"./index-CTjT7uj6.js";const s="_wrapper_q3q3n_1",o={wrapper:s},r=({children:a,...e})=>t.jsx("div",{...e,className:n(o.wrapper),children:a});try{r.displayName="AvatarStack",r.__docgenInfo={description:`Renders a container for displaying avatars in a stacked layout. This component
+allows for the creation of visually grouped avatar representations, often used
+to indicate multiple users or participants.`,displayName:"AvatarStack",props:{children:{defaultValue:null,description:"An array of `Avatar` components to be rendered within the stack.",name:"children",required:!0,type:{name:"ReactElement<AvatarProps, string | JSXElementConstructor<any>>[]"}}}}}catch{}export{r as A};

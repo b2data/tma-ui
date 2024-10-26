@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-Cw0GR0a5.js";import{c as o}from"./classNames-BjxpnYM-.js";import"./index-CTjT7uj6.js";const t="_wrapper_11cbg_1",c={wrapper:t},s=({className:r,children:p,...a})=>e.jsx("a",{className:o(c.wrapper,r),...a,children:p});try{s.displayName="Link",s.__docgenInfo={description:"",displayName:"Link",props:{}}}catch{}export{s as L};

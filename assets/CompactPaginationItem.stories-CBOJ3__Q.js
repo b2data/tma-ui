@@ -1,0 +1,3 @@
+import{h as e}from"./control-BLWnEcik.js";import{C as s}from"./CompactPaginationItem-B-rX4jci.js";import"./jsx-runtime-Cw0GR0a5.js";import"./index-CTjT7uj6.js";import"./classNames-BjxpnYM-.js";import"./react-BrYeE0c6.js";import"./VisuallyHidden-o-2DMb3A.js";const l={title:"Navigation/CompactPaginationItem",component:s,argTypes:e("children")},o={args:{}};var r,t,a;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {}
+} satisfies Story`,...(a=(t=o.parameters)==null?void 0:t.docs)==null?void 0:a.source}}};const u=["Playground"];export{o as Playground,u as __namedExportsOrder,l as default};
