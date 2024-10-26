@@ -27,14 +27,19 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-      - name: Build packages
+      - name: Install packages
         run: |
+          echo @b2data:registry=https://npm.pkg.github.com > .npmrc
+          echo //npm.pkg.github.com/:_authToken=${{ secrets.REPO_SECRET }} >> .npmrc
           npm install
-          npm run babel
+      - name: Build packages
+        run: npm run babel
       - name: Publish NPM Package
         run: |
           npm pack
           npm publish
+      - name: Cleanup
+        run: rm -f .npmrc
 
   deploy:
     needs: publish
