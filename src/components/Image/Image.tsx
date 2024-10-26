@@ -49,7 +49,7 @@ export const Image = ({
   onError,
   ...restProps
 }: ImageProps) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(Boolean(src));
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
 
