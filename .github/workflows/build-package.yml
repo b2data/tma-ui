@@ -28,7 +28,9 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
       - name: Build packages
-        run: npm run babel
+        run: |
+          npm install
+          npm run babel
       - name: Publish NPM Package
         run: |
           npm pack
@@ -45,6 +47,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: npm install
       - run: npm run storybook:prepare
       - uses: crazy-max/ghaction-github-pages@v3
         with:
