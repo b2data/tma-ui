@@ -1,0 +1,48 @@
+.wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+  box-sizing: border-box;
+
+  padding: 16px;
+}
+
+.wrapper::before {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  content: "";
+  width: 36px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgb(128, 128, 128, 0.25);
+}
+
+.startAdornment,
+.endAdornment {
+  display: flex;
+  align-items: center;
+  flex: 1 0 0;
+}
+
+.startAdornment {
+  justify-content: flex-start;
+}
+
+.endAdornment {
+  justify-content: flex-end;
+}
+
+.children {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+}

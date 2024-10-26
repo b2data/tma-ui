@@ -1,0 +1,27 @@
+.wrapper {
+  padding: 20px 24px 4px 22px;
+  color: var(--tg-theme-link-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper--large {
+  padding-left: 24px;
+  color: var(--tg-theme-text-color);
+}
+
+.wrapper--divider {
+  border-bottom: 1px solid rgb(128, 128, 128, 0.25);
+}
+
+.wrapper--ios {
+  padding: 16px 16px 8px 16px;
+  color: var(--tg-theme-section-header-text-color);
+}
+
+.wrapper--ios.wrapper--large {
+  padding: 0 0 12px;
+  color: var(--tg-theme-text-color);
+}

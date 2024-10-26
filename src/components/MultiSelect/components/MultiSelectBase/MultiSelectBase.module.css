@@ -1,0 +1,53 @@
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-inline-size: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.chip {
+  max-inline-size: calc(100% - 8px);
+  padding: 6px 12px;
+  background: var(--tg-theme-bg-color);
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  padding: 0 8px;
+  position: relative;
+  inline-size: 100%;
+  color: var(--tg-theme-text-color);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  appearance: none;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--tg-theme-hint-color);
+}
+
+.input[readonly] {
+  cursor: default;
+}
+
+.wrapper--withPlaceholder .input {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.closeIcon {
+  display: flex;
+  color: var(--tg-theme-hint-color);
+}

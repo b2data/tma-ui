@@ -1,0 +1,11 @@
+.wrapper {
+  margin: 0;
+  border-top: none;
+  border-width: 1px;
+  border-color: rgb(128, 128, 128, 0.25);
+}
+
+.wrapper--flex {
+  align-self: stretch;
+  height: auto;
+}

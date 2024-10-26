@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  height: 20px;
+}
+
+.text {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  opacity: 0;
+}
+
+.text:hover .icon {
+  opacity: 1;
+}
+
+.icon svg {
+  z-index: 1;
+}
+
+.icon--inline {
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.icon--absolute {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.icon--absolute:before {
+  content: " ";
+  height: -webkit-fill-available;
+  width: 40px;
+  background: linear-gradient(
+    270deg,
+    var(--tg-theme-bg-color) 40%,
+    hsla(0, 0%, 100%, 0)
+  );
+  position: absolute;
+  top: -2px;
+  right: 0;
+  pointer-events: none;
+}
+.icon--secondary-bg-color::before {
+  background: linear-gradient(
+    270deg,
+    var(--tg-theme-secondary-bg-color) 40%,
+    hsla(0, 0%, 100%, 0)
+  );
+}
+
+.icon--success {
+  color: rgba(102, 187, 106, 1);
+}

@@ -1,0 +1,68 @@
+.wrapper {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Roboto",
+    "Apple Color Emoji",
+    "Helvetica Neue",
+    sans-serif;
+}
+
+.wrapper--h1 {
+  font-size: 34px;
+  line-height: 42px;
+}
+.wrapper--h2 {
+  font-size: 28px;
+  line-height: 36px;
+}
+.wrapper--h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.wrapper--h4 {
+  font-size: 20px;
+  line-height: 24px;
+}
+.wrapper--headline {
+  font-size: 19px;
+  line-height: 28px;
+}
+.wrapper--subHeadline {
+  font-size: 16px;
+  line-height: 24px;
+}
+.wrapper--subHeadline-small {
+  font-size: 15px;
+  line-height: 22px;
+}
+.wrapper--text {
+  font-size: 17px;
+  line-height: 26px;
+}
+.wrapper--caption {
+  font-size: 13px;
+  line-height: 20px;
+}
+.wrapper--caption-small {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.wrapper--light {
+  font-weight: 300;
+}
+.wrapper--regular {
+  font-weight: 500;
+}
+.wrapper--bold {
+  font-weight: 700;
+}
+
+.wrapper--plain {
+  margin: 0;
+}
+.wrapper--caps {
+  text-transform: uppercase;
+}

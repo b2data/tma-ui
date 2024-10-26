@@ -1,0 +1,14 @@
+.wrapper {
+  border-radius: 50% !important;
+}
+
+.wrapper--withAcronym {
+  background-color: rgba(67, 120, 255, 0.1);
+  color: var(--tg-theme-link-color);
+}
+
+.badge {
+  position: absolute;
+  right: -12px;
+  top: 0;
+}

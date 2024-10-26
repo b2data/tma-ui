@@ -1,0 +1,22 @@
+.wrapper {
+  display: block;
+  background-color: var(--tg-theme-secondary-bg-color);
+  height: auto;
+  animation: 1.5s ease-in-out 0.5s infinite normal none running
+    skeleton-animation;
+}
+
+.wrapper::before {
+  content: " ";
+}
+
+@keyframes skeleton-animation {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}

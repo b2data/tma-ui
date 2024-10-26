@@ -1,0 +1,14 @@
+.wrapper {
+  display: inline-flex;
+  gap: 8px;
+  padding: 4px;
+}
+
+.wrapper--ambient {
+  padding: 8px 9px;
+  gap: 6px;
+  border-radius: 28px;
+  background: var(--tg-theme-bg-color);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}

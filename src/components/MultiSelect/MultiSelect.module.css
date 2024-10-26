@@ -1,0 +1,16 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 52px;
+}
+
+.base.base {
+  min-height: 52px;
+  padding-right: 48px;
+}
+
+.chevron {
+  position: absolute;
+  right: 16px;
+  color: var(--tg-theme-hint-color);
+}

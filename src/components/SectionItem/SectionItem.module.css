@@ -1,0 +1,96 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  position: relative;
+}
+
+.wrapper--ios {
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.wrapper--no-clickable {
+  cursor: default;
+}
+
+.wrapper:hover:not(.wrapper--no-clickable)::before,
+.wrapper--hovered:not(.wrapper--no-clickable)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--tg-theme-text-color);
+  opacity: 0.05;
+  border-radius: inherit;
+}
+
+.startAdornment,
+.endAdornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  flex-grow: 1;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+
+  padding: 16px 0;
+}
+
+.wrapper--ios .middle {
+  padding: 12px 0;
+}
+
+.wrapper--dense .middle {
+  padding: 8px 0;
+}
+
+.middle > *,
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapper:not(.wrapper--multiline) .middle > *,
+.wrapper:not(.wrapper--multiline) .title {
+  white-space: nowrap;
+}
+
+.subhead {
+  color: var(--tg-theme-subtitle-text-color);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.head {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hint {
+  color: var(--tg-theme-hint-color);
+  font-size: 0.8rem;
+}
+
+.subtitle {
+  color: var(--tg-theme-hint-color);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.description {
+  color: var(--tg-theme-hint-color);
+}

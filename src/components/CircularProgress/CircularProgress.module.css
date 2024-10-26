@@ -1,0 +1,9 @@
+.wrapper {
+  stroke: var(--tg-theme-button-color);
+  transform: rotate(-90deg);
+}
+
+.size {
+  transform: rotate(90deg);
+  fill: var(--tg-theme-button-color);
+}

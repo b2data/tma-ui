@@ -1,0 +1,22 @@
+.wrapper {
+  color: var(--tg-theme-button-color);
+}
+
+.wrapper--small {
+  height: 24px;
+  width: 24px;
+}
+
+.wrapper--medium {
+  height: 32px;
+  width: 32px;
+}
+
+.wrapper--large {
+  height: 44px;
+  width: 44px;
+}
+
+.wrapper--ios {
+  color: var(--tg-theme-hint-color);
+}

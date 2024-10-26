@@ -1,0 +1,60 @@
+.wrapper {
+  user-select: none;
+  -webkit-user-select: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.wrapper:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--tg-theme-button-color);
+}
+
+.wrapper--elevated {
+  background: var(--tg-theme-bg-color);
+  box-shadow: 0 0 5px 0 #d4d4d4;
+}
+
+.wrapper--mono {
+  background: var(--tg-theme-secondary-bg-color);
+}
+
+.wrapper--outline {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #d4d4d4;
+}
+
+.wrapper--small {
+  padding: 4px 8px;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  flex: 1 1 0;
+  color: var(--tg-theme-text-color);
+}
+
+.startAdornment {
+  display: flex;
+  align-items: center;
+  
+  margin-right: 2px;
+}
+
+.endAdornment {
+  display: flex;
+  align-items: center;
+
+  /* Visually centering icons, because of line-height */
+  margin-top: 1.5px;
+  color: var(--tg-theme-hint-color);
+}
