@@ -5,6 +5,12 @@ import { classNames, hexToRGB } from "@/helpers";
 
 import { Drawer } from "vaul";
 
+declare global {
+  interface Window {
+    Telegram: any;
+  }
+}
+
 export interface ModalOverlayProps {
   className?: string;
   hexBgColor?: string; // should be HEX

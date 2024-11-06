@@ -3,13 +3,6 @@ import { createRoot } from "react-dom/client";
 
 import * as Components from "./components";
 
-declare global {
-  interface Window {
-    eruda: any;
-    Telegram: any;
-  }
-}
-
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <React.Fragment>
