@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { setControlsTypes } from "@/storybook";
 
 import { Section } from "./Section";
@@ -19,17 +19,17 @@ type Story = StoryObj<typeof meta>;
 const cells = [
   {
     id: 1,
-    icon: <HomeIcon />,
+    icon: <AddIcon />,
     text: "Chat Settings",
   },
   {
     id: 2,
-    icon: <HomeIcon />,
+    icon: <AddIcon />,
     text: "Data and Storage",
   },
   {
     id: 3,
-    icon: <HomeIcon />,
+    icon: <AddIcon />,
     text: "Devices",
   },
 ];

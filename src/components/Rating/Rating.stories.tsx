@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { hideControls } from "@/storybook";
 
 import { Rating } from "./Rating";
@@ -28,7 +28,7 @@ export const Playground: Story = {
 export const CustomIcon: Story = {
   render: (args) => (
     <Section header="We use custom icon here">
-      <Rating IconContainer={HomeIcon} {...args} />
+      <Rating IconContainer={AddIcon} {...args} />
     </Section>
   ),
 } satisfies Story;

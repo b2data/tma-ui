@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 
 import { Image } from "./Image";
 import { hideControls } from "@/storybook";
@@ -47,6 +47,6 @@ export const WithBadge: Story = {
 export const WithChildren: Story = {
   args: {
     size: 48,
-    children: <HomeIcon />,
+    children: <AddIcon />,
   },
 } satisfies Story;

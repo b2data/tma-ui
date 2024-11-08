@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { InlineButtons } from "./InlineButtons";
 
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { hideControls } from "@/storybook";
 import { InlineButtonsItem } from "../InlineButtonsItem";
 
@@ -22,13 +22,13 @@ export const Playground: Story = {
   args: {
     children: [
       <InlineButtonsItem key="1" text="Default">
-        <HomeIcon />
+        <AddIcon />
       </InlineButtonsItem>,
       <InlineButtonsItem key="2" text="Selected" selected>
-        <HomeIcon />
+        <AddIcon />
       </InlineButtonsItem>,
       <InlineButtonsItem key="3" text="Disabled" disabled>
-        <HomeIcon />
+        <AddIcon />
       </InlineButtonsItem>,
     ],
   },

@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { hideControls, setControlsTypes } from "@/storybook";
 
 import { Snackbar } from "./Snackbar";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { Button } from "@/components/Button";
 import { Link } from "@/components/Link";
 
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   args: {
-    startAdornment: <HomeIcon />,
+    startAdornment: <AddIcon />,
     description: "Restore the message within 4 seconds",
     children: "Message deleted",
     onClose: () => {},

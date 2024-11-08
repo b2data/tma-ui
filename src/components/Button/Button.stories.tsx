@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { hideControls, setControlsTypes } from "@/storybook";
 
 import { Button } from "./Button";
@@ -64,8 +64,8 @@ export const Variants: Story = {
 
 export const WithIcon: Story = {
   args: {
-    startAdornment: <HomeIcon />,
-    endAdornment: <HomeIcon />,
+    startAdornment: <AddIcon />,
+    endAdornment: <AddIcon />,
     children: "Create channel",
   },
   render: (args) => <Button {...args} />,

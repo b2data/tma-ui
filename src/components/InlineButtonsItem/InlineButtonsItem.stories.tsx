@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { InlineButtonsItem } from "./InlineButtonsItem";
 
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 import { hideControls } from "@/storybook";
 
 const meta = {
@@ -20,6 +20,6 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     text: "Default",
-    children: <HomeIcon />,
+    children: <AddIcon />,
   },
 } satisfies Story;

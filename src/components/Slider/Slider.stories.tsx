@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Slider } from "./Slider";
 import { List } from "@/components/List";
 import { Section } from "@/components/Section";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 
 const meta = {
   title: "Forms/Slider",
@@ -22,7 +22,7 @@ export const Playground: Story = {
         header="Slider with icons"
         footer="Slider with before and after props"
       >
-        <Slider startAdornment={<HomeIcon />} endAdornment={<HomeIcon />} />
+        <Slider startAdornment={<AddIcon />} endAdornment={<AddIcon />} />
       </Section>
       <Section header="Stepped Slider" footer="Slider with step={20} prop">
         <Slider step={25} />

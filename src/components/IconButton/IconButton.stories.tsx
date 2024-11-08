@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HomeIcon } from "@/icons";
+import { AddIcon } from "@/icons";
 
 import { IconButton } from "./IconButton";
 import { hideControls } from "@/storybook";
@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   args: {
-    children: <HomeIcon />,
+    children: <AddIcon />,
   },
 } satisfies Story;
