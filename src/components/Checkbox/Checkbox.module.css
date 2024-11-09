@@ -1,6 +1,8 @@
 .wrapper {
   cursor: pointer;
   position: relative;
+
+  user-select: none;
 }
 
 .wrapper--disabled {

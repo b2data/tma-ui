@@ -11,6 +11,8 @@
 
   box-sizing: border-box;
   border-radius: 20px;
+
+  user-select: none;
 }
 
 .wrapper--large {

@@ -1,6 +1,8 @@
 .wrapper {
   stroke: var(--tg-theme-button-color);
   transform: rotate(-90deg);
+
+  user-select: none;
 }
 
 .size {

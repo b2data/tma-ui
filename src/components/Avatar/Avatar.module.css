@@ -1,5 +1,6 @@
 .wrapper {
   border-radius: 50% !important;
+  user-select: none;
 }
 
 .wrapper--withAcronym {

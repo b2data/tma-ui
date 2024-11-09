@@ -9,6 +9,8 @@
 
   border-radius: 44px;
   background: var(--tg-theme-section-bg-color);
+
+  user-select: none;
 }
 
 .body {
