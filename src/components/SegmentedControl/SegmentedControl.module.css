@@ -8,7 +8,7 @@
   box-sizing: border-box;
 
   border-radius: 44px;
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-section-bg-color);
 }
 
 .body {
@@ -36,7 +36,6 @@
 
 .wrapper--ios {
   border-radius: 9px;
-  background: var(--tg-theme-bg-color);
 }
 
 .wrapper--ios .slider {

@@ -25,7 +25,7 @@ const chips = ["Chip", "'n'", "Dale"];
 
 export const Playground: Story = {
   render: (args) => (
-    <List style={{ padding: 20, background: "var(--tg-theme-bg-color)" }}>
+    <List style={{ padding: 20, background: "var(--tg-theme-section-bg-color)" }}>
       <div style={{ display: "flex", gap: 16 }}>
         {chips.map((text) => (
           <Chip key={text} {...args}>

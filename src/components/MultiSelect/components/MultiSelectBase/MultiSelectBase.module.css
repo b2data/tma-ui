@@ -13,9 +13,8 @@
 }
 
 .chip {
-  max-inline-size: calc(100% - 8px);
-  padding: 6px 12px;
-  background: var(--tg-theme-bg-color);
+  max-inline-size: calc(100% - 8px) !important;
+  padding: 4px 8px !important;
 }
 
 .input {

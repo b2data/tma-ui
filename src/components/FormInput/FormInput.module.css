@@ -1,7 +1,7 @@
 .wrapper--base {
   position: relative;
   padding: 20px 22px 16px 22px;
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-section-bg-color);
 }
 
 .wrapper--base.wrapper--dense {
@@ -16,7 +16,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  top: 6px;
+  top: 5px;
   left: 32px;
   /* We can't use the right option because it will be stretched, and we need the container to be small if the text is short */
   max-width: calc(100% - 32px * 2 - 22px);
@@ -24,7 +24,7 @@
   border-radius: 5px;
   padding: 0 6px;
   color: #cbcbcb;
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-section-bg-color);
 }
 
 .wrapper--disabled {
@@ -78,7 +78,7 @@
 
 .wrapper--ios .body {
   border-radius: 12px;
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-section-bg-color);
 }
 
 .wrapper--ios.wrapper--error .body {

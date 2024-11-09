@@ -26,7 +26,7 @@ export const Playground: Story = {
     (DecoratorStory) => (
       <List
         style={{
-          background: "var(--tg-theme-bg-color)",
+          background: "var(--tg-theme-secondary-bg-color)",
           padding: 10,
         }}
       >
@@ -46,7 +46,7 @@ export const Inputs: Story = {
           width: 400,
           maxWidth: "100%",
           margin: "auto",
-          background: "var(--tg-theme-bg-color)",
+          background: "var(--tg-theme-section-bg-color)",
           padding: 10,
         }}
       >
@@ -103,7 +103,7 @@ export const Textarea: Story = {
           width: 400,
           maxWidth: "100%",
           margin: "auto",
-          background: "var(--tg-theme-bg-color)",
+          background: "var(--tg-theme-section-bg-color)",
         }}
       >
         <TextField
@@ -127,7 +127,13 @@ export const Textarea: Story = {
           disabled
           multiline
           header="Textarea"
-          placeholder="I am disabled input"
+          placeholder="I am disabled placeholder"
+        />
+        <TextField
+          disabled
+          multiline
+          header="Textarea"
+          value="I am disabled value"
         />
         <TextField
           status="focused"
