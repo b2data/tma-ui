@@ -22,7 +22,11 @@ const sizeStyles = {
  * Provides a visual indicator for loading states across different platforms. It automatically selects
  * an appropriate spinner style based on the current platform, allowing for a consistent user experience.
  */
-export const Spinner = ({ size = "medium", className }: SpinnerProps) => {
+export const Spinner = ({
+  size = "medium",
+  className,
+  ...other
+}: SpinnerProps) => {
   const platform = usePlatform();
 
   const Component = platform === "ios" ? IOSSpinner : BaseSpinner;
@@ -36,6 +40,7 @@ export const Spinner = ({ size = "medium", className }: SpinnerProps) => {
         sizeStyles[size],
         className,
       )}
+      {...other}
     >
       <Component size={size} />
     </div>
