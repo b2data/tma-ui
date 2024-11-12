@@ -7,6 +7,7 @@ export * from "./ChevronRightIcon";
 export * from "./CloseIcon";
 export * from "./CopyIcon";
 export * from "./DeleteIcon";
+export * from "./FilterIcon";
 export * from "./ReloadIcon";
 export * from "./RemoveIcon";
 export * from "./SearchIcon";

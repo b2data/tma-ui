@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 20px 22px 8px;
+  padding: 20px 14px 8px;
   color: var(--tg-theme-link-color);
   display: flex;
   flex-direction: row;
@@ -8,7 +8,7 @@
 }
 
 .wrapper--large {
-  padding-left: 24px;
+  padding-left: 16px;
   color: var(--tg-theme-text-color);
 }
 

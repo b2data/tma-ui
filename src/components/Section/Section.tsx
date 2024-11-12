@@ -1,4 +1,10 @@
-import { Children, ElementType, HTMLAttributes, ReactNode } from "react";
+import {
+  Children,
+  ElementType,
+  Fragment,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 import styles from "./Section.module.css";
 
 import { classNames, isPrimitiveReactNode } from "@/helpers";
@@ -49,6 +55,8 @@ export const Section = ({
     footer
   );
 
+  const ValidChildren = Children.toArray(children).filter(Boolean);
+
   return (
     <Component
       className={classNames(
@@ -61,13 +69,13 @@ export const Section = ({
       <div className={styles.bodyWithHeader}>
         {headerWithWrapper}
         <div className={styles.body}>
-          {Children.map(children, (child, index) => (
-            <>
+          {ValidChildren.map((child, index) => (
+            <Fragment key={index}>
               {child}
-              {index < Children.count(children) - 1 && (
+              {index < ValidChildren.length - 1 && (
                 <Divider className={styles.divider} />
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

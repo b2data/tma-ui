@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 12px 24px;
+  padding: 12px 16px;
 }
 
 .wrapper--ios {
@@ -7,7 +7,7 @@
 }
 
 .wrapper--centered {
-  padding: 16px 24px 20px;
+  padding: 16px 16px 20px;
   text-align: center;
 }
 

@@ -2,7 +2,6 @@ import { ElementType, forwardRef, ReactElement, ReactNode } from "react";
 import styles from "./SectionItem.module.css";
 
 import { classNames, hasReactNode } from "@/helpers";
-import { usePlatform } from "@/hooks";
 import { Tappable, TappableProps } from "@/components/Tappable";
 import { BadgeProps } from "@/components/Badge";
 import { Typography } from "@/components/Typography";
@@ -60,8 +59,6 @@ export const SectionItem = forwardRef(
     }: SectionItemProps,
     ref,
   ) => {
-    const platform = usePlatform();
-
     const hasTitle =
       hasReactNode(children) || hasReactNode(hint) || hasReactNode(titleBadge);
 
@@ -72,7 +69,6 @@ export const SectionItem = forwardRef(
         className={classNames(
           styles.wrapper,
           hovered && styles["wrapper--hovered"],
-          platform === "ios" && styles["wrapper--ios"],
           multiline && styles["wrapper--multiline"],
           dense && styles["wrapper--dense"],
           readOnly && styles["wrapper--no-clickable"],
