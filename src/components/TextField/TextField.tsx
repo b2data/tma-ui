@@ -29,6 +29,7 @@ export const TextField = forwardRef(
       endAdornment,
       status,
       className,
+      wrapperProps,
       disabled,
       multiline,
       ...restProps
@@ -44,6 +45,7 @@ export const TextField = forwardRef(
         endAdornment={endAdornment}
         status={status}
         disabled={disabled}
+        wrapperProps={wrapperProps}
         className={classNames(
           styles.wrapper,
           platform === "ios" && styles["wrapper--ios"],

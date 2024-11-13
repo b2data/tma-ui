@@ -13,7 +13,7 @@ export interface UseMultiSelectInputProps {
   /** If true, the multiselect is considered disabled and cannot be interacted with. */
   disabled?: boolean;
   /** The currently selected options. */
-  value: MultiSelectOption[];
+  value?: MultiSelectOption[];
   /** The default value(s) for the multiselect if `value` is uncontrolled. */
   defaultValue?: MultiSelectOption[];
   /** Callback fired when the selected options change. */
@@ -80,7 +80,9 @@ export const useMultiSelectInput = ({
         return nextValue;
       });
 
-      onChange?.(valueForChange);
+      if (valueForChange) {
+        onChange?.(valueForChange);
+      }
     },
     [setValue],
   );

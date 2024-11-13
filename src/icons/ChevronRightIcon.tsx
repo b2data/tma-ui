@@ -1,10 +1,11 @@
 import { Icon } from "./types";
 
-export const ChevronRightIcon = ({ size = 24, ...props }: Icon) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M7.29289 3.79289c.39053-.39052 1.02369-.39052 1.41422 0l7.49999 7.50001c.3905.3905.3905 1.0237 0 1.4142l-7.49999 7.5c-.39053.3905-1.02369.3905-1.41422 0-.39052-.3905-.39052-1.0237 0-1.4142L14.0858 12 7.29289 5.20711c-.39052-.39053-.39052-1.02369 0-1.41422Z"
-      fill="currentColor"
-    />
+export const ChevronRightIcon = ({
+  size = 24,
+  fill = "currentColor",
+  ...props
+}: Icon) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill={fill} {...props}>
+    <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
   </svg>
 );

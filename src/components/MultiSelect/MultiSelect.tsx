@@ -11,7 +11,7 @@ import {
 import styles from "./MultiSelect.module.css";
 
 import { Keys } from "@/helpers";
-import { classNames, callMultiple, multipleRef } from "@/helpers";
+import { classNames, callMultiple } from "@/helpers";
 import { useGlobalClicks } from "@/hooks";
 
 import { ChevronDownIcon } from "@/icons";
@@ -34,12 +34,14 @@ import {
   isServicePreset,
 } from "./hooks/constants";
 
+export type { MultiSelectOption };
+
 export interface MultiSelectProps
   extends Omit<
       InputHTMLAttributes<HTMLInputElement>,
       "value" | "defaultValue" | "onChange"
     >,
-    Omit<FormPublicProps, "endAdornment">,
+    FormPublicProps,
     Pick<MultiSelectDropdownProps, "closeDropdownAfterSelect" | "renderOption">,
     Pick<
       UseMultiSelectProps,
@@ -52,6 +54,8 @@ export interface MultiSelectProps
       | "selectedBehavior"
       | "emptyText"
       | "creatable"
+      | "onOpen"
+      | "onClose"
     >,
     Pick<MultiSelectBaseProps, "renderChip"> {
   /**
@@ -72,9 +76,13 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       // FormInput options
       header,
       startAdornment,
+      endAdornment,
       status,
+      wrapperProps,
       className,
       disabled,
+      onOpen,
+      onClose,
 
       // CustomSelectDropdownProps
       options: optionsProp,
@@ -139,9 +147,11 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
 
       // Other props
       disabled,
+      onOpen,
+      onClose,
     });
 
-    const containerRef = useRef<HTMLDivElement>(null);
+    const labelRef = useRef(null);
     const rootRef = useRef(null);
 
     const dropdownAriaId = useId();
@@ -298,7 +308,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     }, [setFocusedOptionIndex]);
 
     const toggleOpened = () => {
-      setOpened((prevOpened) => !prevOpened);
+      setOpened(!opened);
     };
 
     const handleClickOutside = useCallback(() => {
@@ -316,20 +326,33 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     );
 
     const controlledStatus = status || (opened ? "focused" : "default");
+
     return (
       <FormInput
-        ref={multipleRef(ref, containerRef)}
+        ref={ref}
+        labelRef={labelRef}
         header={header}
         startAdornment={startAdornment}
+        endAdornment={
+          <>
+            {endAdornment}
+            <ChevronDownIcon
+              aria-hidden
+              onClick={toggleOpened}
+              className={styles.chevron}
+              style={{ transform: opened ? "rotate(180deg)" : "rotate(0)" }}
+            />
+          </>
+        }
         status={controlledStatus}
         disabled={disabled}
+        wrapperProps={wrapperProps}
         className={classNames(styles.wrapper, className)}
       >
         <MultiSelectBase
           {...restProps}
           // FormFieldProps
           ref={rootRef}
-          className={styles.base}
           // Option props
           onAddChipOption={addOptionFromInput}
           onRemoveChipOption={removeOption}
@@ -348,18 +371,13 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
           aria-controls={dropdownAriaId}
           aria-haspopup="listbox"
         />
-        <ChevronDownIcon
-          aria-hidden
-          onClick={toggleOpened}
-          className={styles.chevron}
-        />
         {opened && (
           <MultiSelectDropdown
             ref={dropdownScrollBoxRef}
             dropdownAriaId={dropdownAriaId}
             options={options}
             onMouseLeave={onDropdownMouseLeave}
-            targetRef={rootRef}
+            targetRef={labelRef}
             addOptionFromInput={() => addOptionFromInput(inputValue)}
             setFocusedOptionIndex={setFocusedOptionIndex}
             renderOption={renderOption}

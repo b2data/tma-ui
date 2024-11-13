@@ -52,6 +52,7 @@ export const Inputs: Story = {
       >
         <TextField
           header="Input"
+          startAdornment="a"
           placeholder="I am usual input, just leave me alone"
         />
         <TextField

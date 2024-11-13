@@ -1,12 +1,11 @@
-import { HTMLAttributes, ReactElement } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import styles from "./AvatarStack.module.css";
 
 import { classNames } from "@/helpers";
-import { AvatarProps } from "../Avatar";
 
 export interface AvatarStackProps extends HTMLAttributes<HTMLDivElement> {
   /** An array of `Avatar` components to be rendered within the stack. */
-  children: ReactElement<AvatarProps>[];
+  children: ReactNode;
 }
 
 /**

@@ -41,7 +41,12 @@ const PLATFORM_OPTIONS: MultiSelectOption[] = [
 ];
 
 const decorator: Decorator = (Story) => (
-  <List style={{ minHeight: "360px", background: "var(--tg-theme-bg-color)" }}>
+  <List
+    style={{
+      minHeight: "360px",
+      background: "var(--tg-theme-secondary-bg-color)",
+    }}
+  >
     <Story />
   </List>
 );

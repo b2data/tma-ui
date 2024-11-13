@@ -16,11 +16,15 @@ export interface FormPublicProps {
   endAdornment?: ReactNode;
   /** Indicates if the form input is disabled. */
   disabled?: boolean;
+  /** Additional class name for the root element. */
+  wrapperProps?: HTMLAttributes<HTMLDivElement>;
 }
 
 export interface FormInputProps
   extends FormPublicProps,
-    HTMLAttributes<HTMLLabelElement> {}
+    HTMLAttributes<HTMLLabelElement> {
+  labelRef?: React.RefObject<HTMLLabelElement>;
+}
 
 const platformStyles = {
   base: styles["wrapper--base"],
@@ -47,8 +51,10 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
       disabled,
       children,
       className,
+      wrapperProps = {},
       onFocus: onFocusProp,
       onBlur: onBlurProp,
+      labelRef,
       ...restProps
     },
     ref,
@@ -69,6 +75,7 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
 
     return (
       <div
+        {...wrapperProps}
         ref={ref}
         className={classNames(
           styles.wrapper,
@@ -78,6 +85,7 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
             styles["wrapper--dense"],
           formStatusStyles[formStatus],
           disabled && styles["wrapper--disabled"],
+          wrapperProps.className,
         )}
         aria-disabled={disabled}
       >
@@ -86,6 +94,7 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
           className={classNames(styles.body, className)}
           onFocus={onFocus}
           onBlur={onBlur}
+          ref={labelRef}
           {...restProps}
         >
           {hasReactNode(startAdornment) && (

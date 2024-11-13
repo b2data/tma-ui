@@ -7,14 +7,13 @@
   flex-wrap: wrap;
   gap: 8px;
   max-inline-size: 100%;
-  padding: 8px;
   box-sizing: border-box;
   margin: 0;
 }
 
 .chip {
   max-inline-size: calc(100% - 8px) !important;
-  padding: 4px 8px !important;
+  padding: 3px 8px !important;
 }
 
 .input {
@@ -22,7 +21,7 @@
   justify-content: center;
   flex-direction: column;
   flex: 1;
-  padding: 0 8px;
+  padding: 0;
   position: relative;
   inline-size: 100%;
   color: var(--tg-theme-text-color);

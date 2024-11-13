@@ -53,6 +53,8 @@
 .startAdornment,
 .endAdornment {
   display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .wrapper--base .body {

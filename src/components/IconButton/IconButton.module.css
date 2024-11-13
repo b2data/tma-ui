@@ -22,6 +22,10 @@
   height: 24px;
 }
 
+.wrapper--large {
+  padding: 10px;
+}
+
 .wrapper--large svg {
   width: 28px;
   height: 28px;

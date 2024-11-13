@@ -30,6 +30,10 @@ export interface UseMultiSelectProps extends UseMultiSelectInputProps {
   selectedBehavior?: "hide" | "highlight";
   /** Custom function to filter options based on the input value. */
   filterFn?: false | FilterFn;
+  /** Callback fired when the dropdown is opened. */
+  onOpen?: () => void;
+  /** Callback fired when the dropdown is closed. */
+  onClose?: () => void;
 }
 
 /**
@@ -39,6 +43,8 @@ export interface UseMultiSelectProps extends UseMultiSelectInputProps {
 export const useMultiSelect = ({
   // Common props
   disabled,
+  onOpen,
+  onClose,
 
   // Options props
   value: valueProp,
@@ -93,6 +99,16 @@ export const useMultiSelect = ({
     null,
   );
 
+  const handleSetOpened = (s: boolean) => {
+    setOpened(s);
+    if (s && onOpen) {
+      onOpen();
+    }
+    if (!s && onClose) {
+      onClose();
+    }
+  };
+
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       onInputChange(event);
@@ -101,7 +117,7 @@ export const useMultiSelect = ({
         return;
       }
 
-      setOpened(true);
+      handleSetOpened(true);
       setFocusedOptionIndex(0);
     },
     [onInputChange, opened],
@@ -152,7 +168,7 @@ export const useMultiSelect = ({
     // States for dropdown
     options,
     opened,
-    setOpened,
+    setOpened: handleSetOpened,
     focusedOption,
     focusedOptionIndex,
     setFocusedOption,

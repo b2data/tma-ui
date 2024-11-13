@@ -6,15 +6,17 @@ export interface AvatarAcronymProps extends Omit<TypographyProps, "size"> {
 }
 
 export const AvatarAcronym = ({ size, ...restProps }: AvatarAcronymProps) => {
-  if (!size || typeof size === "string") {
+  if (!size) {
     return null;
   }
+  const currentSize =
+    typeof size === "string" ? parseInt(size.replace(/[^0-9]/g, ""), 10) : size;
 
-  if (size <= 28) {
+  if (currentSize <= 28) {
     return (
       <Typography
         variant="caption"
-        small={size <= 24}
+        small={currentSize <= 24}
         weight="light"
         caps
         {...restProps}
@@ -22,11 +24,11 @@ export const AvatarAcronym = ({ size, ...restProps }: AvatarAcronymProps) => {
     );
   }
 
-  if (size === 40) {
+  if (currentSize < 40) {
     return <Typography variant="headline" caps {...restProps} />;
   }
 
-  if (size === 48) {
+  if (currentSize < 48) {
     return <Typography variant="h4" weight="light" caps {...restProps} />;
   }
 

@@ -25,6 +25,7 @@ export const Select = ({
   status,
   className,
   disabled,
+  wrapperProps,
   ...restProps
 }: SelectProps) => {
   const platform = usePlatform();
@@ -40,6 +41,7 @@ export const Select = ({
         platform === "ios" && styles["wrapper--ios"],
         className,
       )}
+      wrapperProps={wrapperProps}
     >
       <Typography
         variant={platform === "ios" ? "text" : "subHeadline"}

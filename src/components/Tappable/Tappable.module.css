@@ -15,12 +15,12 @@
   opacity: 0.35;
 }
 
-.wrapper--opacity:hover:not(:disabled),
-.wrapper--ios:hover:not(:disabled) {
+.wrapper--opacity:hover:not([disabled]),
+.wrapper--ios:hover:not([disabled]) {
   opacity: 0.85;
 }
 
-.wrapper--opacity:active:not(:disabled),
-.wrapper--ios:active:not(:disabled) {
+.wrapper--opacity:active:not([disabled]),
+.wrapper--ios:active:not([disabled]) {
   opacity: 0.65;
 }

@@ -1,10 +1,11 @@
 import { Icon } from "./types";
 
-export const ChevronDownIcon = ({ size = 24, ...props }: Icon) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M4.3 7.54a1 1 0 0 1 1.4 0l6.8 6.8 6.8-6.8a1 1 0 1 1 1.4 1.42l-7.5 7.5a1 1 0 0 1-1.4 0l-7.5-7.5a1 1 0 0 1 0-1.42Z"
-      fill="currentColor"
-    />
+export const ChevronDownIcon = ({
+  size = 24,
+  fill = "currentColor",
+  ...props
+}: Icon) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} fill={fill} {...props}>
+    <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z" />
   </svg>
 );
