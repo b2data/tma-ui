@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { hideControls } from "@/storybook";
 
@@ -163,4 +163,32 @@ export const Caption: Story = {
       ))}
     </>
   ),
+} satisfies Story;
+
+export const Markdown: Story = {
+  args: {
+    markdown:
+      "## Markdown H1\n\n**bold** *italic*\n\n- list\n- list\n\nem _em_\n\n* * *\n`code`   \n```code2```",
+  },
+} satisfies Story;
+
+export const Editable: Story = {
+  args: {
+    editableProps: {
+      enabled: true,
+      markdown: true,
+      placeholder: "Type here...",
+    },
+  },
+  render: (props) => {
+    const [value, setValue] = useState("");
+    console.log({ value });
+    return (
+      <Typography
+        {...props}
+        onBlur={(e) => setValue(e.currentTarget.innerHTML)}
+        markdown={value}
+      />
+    );
+  },
 } satisfies Story;

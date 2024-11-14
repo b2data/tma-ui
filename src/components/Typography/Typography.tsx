@@ -1,7 +1,9 @@
-import { AllHTMLAttributes, ElementType, forwardRef } from "react";
+import { AllHTMLAttributes, ElementType, forwardRef, useMemo } from "react";
 import styles from "./Typography.module.css";
+import { classNames, multipleRef } from "@/helpers";
+import { useEditableConfig } from "./use-editable-config";
 
-import { classNames } from "@/helpers";
+import { marked } from "marked";
 
 export interface TypographyProps extends AllHTMLAttributes<HTMLElement> {
   /** Determines the component and styles of text: h1, h2, h3, h4, h5, h6, span .*/
@@ -24,6 +26,18 @@ export interface TypographyProps extends AllHTMLAttributes<HTMLElement> {
   plain?: boolean;
   /** When true, reduce font-size of the component. Applies only for `subHeadline` and `caption`. */
   small?: boolean;
+  editableProps?: {
+    /** If true, the editableContent will be enabled. */
+    enabled?: boolean;
+    /** Placeholder text to display when the component is empty */
+    placeholder?: string;
+    /** If true, the component will ignore styles on paste */
+    plain?: boolean;
+    /** If true, the component will return Markdown instead of HTML `onBlur` or `onInput` events */
+    markdown?: boolean;
+  };
+  /** Content to be displayed as HTML from Markdown string. */
+  markdown?: string;
 }
 
 const elementTagMap = {
@@ -66,18 +80,36 @@ export const Typography = forwardRef(
       weight = "regular",
       plain = true,
       small,
+      editableProps = {},
       caps,
       className,
       Component: OverwriteComponent,
+      markdown,
+      children,
       ...restProps
     }: TypographyProps,
     ref,
   ) => {
     const Component = OverwriteComponent || elementTagMap[variant];
 
+    const {
+      ref: configRef,
+      state,
+      ...editableConfig
+    } = useEditableConfig(
+      { ...editableProps, markdownRaw: markdown },
+      restProps,
+    );
+
+    const markdownContent = useMemo(
+      () => (markdown ? marked.parse(markdown?.toString() || "") : undefined),
+      [markdown],
+    );
+
     return (
       <Component
-        ref={ref}
+        ref={multipleRef(ref, configRef)}
+        key={state}
         className={classNames(
           styles.wrapper,
           stylesType[variant],
@@ -85,9 +117,19 @@ export const Typography = forwardRef(
           plain && styles["wrapper--plain"],
           caps && styles["wrapper--caps"],
           weight && stylesWeight[weight],
+          markdown && styles["wrapper--markdown"],
+          editableProps.enabled && styles["wrapper--editable"],
           className,
         )}
+        {...(markdownContent
+          ? {
+              dangerouslySetInnerHTML: { __html: markdownContent },
+            }
+          : {
+              children,
+            })}
         {...restProps}
+        {...editableConfig}
       />
     );
   },
