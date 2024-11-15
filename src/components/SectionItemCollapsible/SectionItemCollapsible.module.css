@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  flex: 1;
+}
+
+.header--content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.header--hint {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.header--adornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.header--chevronDown {
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+
+.collapsible {
+  width: 100%;
+  padding: 16px;
+}

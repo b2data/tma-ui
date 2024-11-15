@@ -1,0 +1,16 @@
+.root {
+  height: auto;
+  overflow: visible;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root--hidden {
+  height: 0px;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}

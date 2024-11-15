@@ -12,6 +12,8 @@ export interface TypographyProps extends AllHTMLAttributes<HTMLElement> {
     | "h2"
     | "h3"
     | "h4"
+    | "h5"
+    | "h6"
     | "headline"
     | "subHeadline"
     | "text"
@@ -45,6 +47,8 @@ const elementTagMap = {
   h2: "h2",
   h3: "h3",
   h4: "h4",
+  h5: "h5",
+  h6: "h6",
   headline: "h5",
   subHeadline: "h6",
   text: "span",
@@ -56,6 +60,8 @@ const stylesType = {
   h2: styles["wrapper--h2"],
   h3: styles["wrapper--h3"],
   h4: styles["wrapper--h4"],
+  h5: styles["wrapper--headline"],
+  h6: styles["wrapper--subHeadline"],
   headline: styles["wrapper--headline"],
   subHeadline: styles["wrapper--subHeadline"],
   text: styles["wrapper--text"],

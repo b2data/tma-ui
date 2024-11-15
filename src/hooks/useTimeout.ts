@@ -1,24 +1,41 @@
-import { useCallback, useEffect, useRef } from "react";
+import useLazyRef from "./useLazyRef";
+import useOnMount from "./useOnMount";
 
-export const useTimeout = (callbackFunction: () => void, duration: number) => {
-  const options = useRef({ callbackFunction, duration });
+export class Timeout {
+  static create() {
+    return new Timeout();
+  }
 
-  useEffect(() => {
-    options.current.callbackFunction = callbackFunction;
-    options.current.duration = duration;
-  }, [callbackFunction, duration]);
+  currentId: ReturnType<typeof setTimeout> | null = null;
 
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  /**
+   * Executes `fn` after `delay`, clearing any previously scheduled call.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+  start(delay: number, fn: Function) {
+    this.clear();
+    this.currentId = setTimeout(() => {
+      this.currentId = null;
+      fn();
+    }, delay);
+  }
 
-  const clear = useCallback(() => clearTimeout(timeout?.current), []);
+  clear = () => {
+    if (this.currentId !== null) {
+      clearTimeout(this.currentId);
+      this.currentId = null;
+    }
+  };
 
-  const set = useCallback(() => {
-    clear();
-    timeout.current = setTimeout(
-      options.current.callbackFunction,
-      options.current.duration,
-    );
-  }, [clear]);
+  disposeEffect = () => {
+    return this.clear;
+  };
+}
 
-  return { set, clear };
-};
+export function useTimeout() {
+  const timeout = useLazyRef(Timeout.create).current;
+
+  useOnMount(timeout.disposeEffect);
+
+  return timeout;
+}

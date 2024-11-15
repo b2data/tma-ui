@@ -1,4 +1,10 @@
-import { ElementType, forwardRef, ReactElement, ReactNode } from "react";
+import {
+  ElementType,
+  forwardRef,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+} from "react";
 import styles from "./SectionItem.module.css";
 
 import { classNames, hasReactNode } from "@/helpers";
@@ -86,31 +92,36 @@ export const SectionItem = forwardRef(
               {subhead}
             </Typography>
           )}
-          {hasTitle && (
-            <Typography variant={"text"} Component="h6" className={styles.head}>
-              {hasReactNode(children) && (
-                <span className={styles.title}>{children}</span>
-              )}
-              {hasReactNode(hint) && (
-                <span className={styles.hint}>{hint}</span>
-              )}
-              {hasReactNode(titleBadge) && titleBadge}
-            </Typography>
-          )}
+          {hasTitle &&
+            (isValidElement(children) && !hint && !titleBadge ? (
+              children
+            ) : (
+              <Typography variant="text" Component="h6" className={styles.head}>
+                {hasReactNode(children) && (
+                  <span className={styles.title}>{children}</span>
+                )}
+                {hasReactNode(hint) && (
+                  <span className={styles.hint}>{hint}</span>
+                )}
+                {hasReactNode(titleBadge) && titleBadge}
+              </Typography>
+            ))}
           {hasReactNode(subtitle) && (
             <Typography variant="subHeadline" small className={styles.subtitle}>
               {subtitle}
             </Typography>
           )}
-          {hasReactNode(description) && (
-            <Typography
-              variant="caption"
-              small={dense}
-              className={styles.description}
-            >
-              {description}
-            </Typography>
-          )}
+          {isValidElement(description)
+            ? description
+            : hasReactNode(description) && (
+                <Typography
+                  variant="caption"
+                  small={dense}
+                  className={styles.description}
+                >
+                  {description}
+                </Typography>
+              )}
         </div>
         {hasReactNode(endAdornment) && (
           <div className={styles.endAdornment}>{endAdornment}</div>

@@ -4,6 +4,7 @@ import {
   Fragment,
   HTMLAttributes,
   ReactNode,
+  useMemo,
 } from "react";
 import styles from "./Section.module.css";
 
@@ -55,7 +56,10 @@ export const Section = ({
     footer
   );
 
-  const ValidChildren = Children.toArray(children).filter(Boolean);
+  const ValidChildren = useMemo(
+    () => Children.toArray(children).filter(Boolean),
+    [children],
+  );
 
   return (
     <Component

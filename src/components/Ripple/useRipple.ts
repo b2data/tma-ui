@@ -8,13 +8,14 @@ const WAVE_LIVE = 225;
 
 export const useRipple = () => {
   const [clicks, setClicks] = useState<Wave[]>([]);
+  const timer = useTimeout();
 
   const pointerDelayTimers = useMemo(
     () => new Map<number, ReturnType<typeof setTimeout>>(),
     [],
   );
 
-  const clearClicks = useTimeout(() => setClicks([]), WAVE_LIVE);
+  const clearClicks = () => setClicks([]);
 
   function addClick(x: number, y: number, pointerId: number) {
     const dateNow = Date.now();
@@ -32,7 +33,7 @@ export const useRipple = () => {
       },
     ]);
 
-    clearClicks.set();
+    timer.start(WAVE_LIVE, clearClicks);
     pointerDelayTimers.delete(pointerId);
   }
 

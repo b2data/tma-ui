@@ -86,9 +86,11 @@
   font-weight: 700;
 }
 
-.wrapper--plain {
+.wrapper--plain,
+.wrapper--plain * {
   margin: 0;
 }
+
 .wrapper--caps {
   text-transform: uppercase;
 }
@@ -110,7 +112,6 @@
 
 .wrapper--editable:focus {
   white-space: pre-line;
-  line-height: 1;
 }
 
 .wrapper--editable:empty:before {

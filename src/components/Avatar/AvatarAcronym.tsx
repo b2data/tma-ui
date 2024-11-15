@@ -24,11 +24,11 @@ export const AvatarAcronym = ({ size, ...restProps }: AvatarAcronymProps) => {
     );
   }
 
-  if (currentSize < 40) {
+  if (currentSize <= 40) {
     return <Typography variant="headline" caps {...restProps} />;
   }
 
-  if (currentSize < 48) {
+  if (currentSize <= 48) {
     return <Typography variant="h4" weight="light" caps {...restProps} />;
   }
 

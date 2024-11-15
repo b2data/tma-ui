@@ -82,6 +82,38 @@ export const H4: Story = {
   ),
 } satisfies Story;
 
+export const H5: Story = {
+  args: {
+    variant: "h5",
+    plain: false,
+  },
+  render: (props) => (
+    <>
+      {["light", "regular", "bold"].map((weight) => (
+        <Typography key={weight} weight={weight as any} {...props}>
+          H4 - {weight}
+        </Typography>
+      ))}
+    </>
+  ),
+} satisfies Story;
+
+export const H6: Story = {
+  args: {
+    variant: "h6",
+    plain: false,
+  },
+  render: (props) => (
+    <>
+      {["light", "regular", "bold"].map((weight) => (
+        <Typography key={weight} weight={weight as any} {...props}>
+          H4 - {weight}
+        </Typography>
+      ))}
+    </>
+  ),
+} satisfies Story;
+
 export const Headline: Story = {
   args: {
     variant: "headline",
@@ -182,7 +214,7 @@ export const Editable: Story = {
   },
   render: (props) => {
     const [value, setValue] = useState("");
-    console.log({ value });
+
     return (
       <Typography
         {...props}

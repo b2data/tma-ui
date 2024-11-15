@@ -1,10 +1,4 @@
-import {
-  HTMLAttributes,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { HTMLAttributes, ReactElement, ReactNode, useState } from "react";
 import styles from "./Snackbar.module.css";
 
 import { classNames, hasReactNode } from "@/helpers";
@@ -13,6 +7,7 @@ import { usePlatform, useTimeout } from "@/hooks";
 import { LinkProps } from "@/components/Link";
 import { RootRenderer } from "@/components/RootRenderer";
 import { Typography } from "@/components/Typography";
+import useOnMount from "@/hooks/useOnMount";
 
 export interface SnackbarProps extends HTMLAttributes<HTMLDivElement> {
   /** Element or component to be displayed on the left side of the snackbar. */
@@ -50,14 +45,16 @@ export const Snackbar = ({
 }: SnackbarProps) => {
   const platform = usePlatform();
   const [closing, setClosing] = useState(false);
+  const timer = useTimeout();
 
   const close = () => {
     setClosing(true);
     setTimeout(onClose, TRANSITION_FINISH_DURATION);
   };
 
-  const closeTimeout = useTimeout(close, duration);
-  useEffect(() => closeTimeout.set(), [closeTimeout]);
+  const startTimer = () => timer.start(duration, close);
+
+  useOnMount(startTimer);
 
   return (
     <RootRenderer>
