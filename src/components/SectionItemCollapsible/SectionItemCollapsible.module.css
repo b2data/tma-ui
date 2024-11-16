@@ -17,10 +17,15 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .header--hint {
   color: var(--tg-theme-subtitle-text-color);
+  min-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .header--adornment {
@@ -30,11 +35,15 @@
   gap: 4px;
 }
 
+.header--endAdornmentEmpty {
+  align-self: flex-start;
+}
+
 .header--chevronDown {
   transition: transform cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
 
 .collapsible {
   width: 100%;
-  padding: 16px;
+  padding: 8px 16px;
 }

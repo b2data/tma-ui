@@ -9,7 +9,7 @@ import { Typography } from "@/components/Typography";
 
 export interface SelectProps
   extends Omit<FormPublicProps, "endAdornment">,
-    SelectHTMLAttributes<HTMLSelectElement> {
+    Omit<SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** Children elements, typically `option` elements to be rendered within the select. */
   children: ReactNode;
 }

@@ -20,6 +20,8 @@ export interface TypographyProps extends AllHTMLAttributes<HTMLElement> {
     | "caption";
   /** Controls the font weight of the text, with options ranging from light to bold. */
   weight?: "light" | "regular" | "bold";
+  /** Determines the color of the text. */
+  color?: "inherit" | "hint" | "accent" | "subtitle" | "header" | "error";
   /** If true, transforms the text to uppercase for stylistic emphasis. */
   caps?: boolean;
   /** Specifies the HTML tag or React component used to render the text, defaulting to `span`. */
@@ -79,11 +81,21 @@ const stylesWeight = {
   bold: styles["wrapper--bold"],
 };
 
+const stylesColor = {
+  inherit: "",
+  hint: styles["wrapper--hint-color"],
+  accent: styles["wrapper--accent-color"],
+  subtitle: styles["wrapper--subtitle-color"],
+  header: styles["wrapper--header-color"],
+  error: styles["wrapper--error-color"],
+};
+
 export const Typography = forwardRef(
   (
     {
       variant = "text",
       weight = "regular",
+      color = "inherit",
       plain = true,
       small,
       editableProps = {},
@@ -119,6 +131,7 @@ export const Typography = forwardRef(
         className={classNames(
           styles.wrapper,
           stylesType[variant],
+          stylesColor[color],
           small && stylesSmall[variant],
           plain && styles["wrapper--plain"],
           caps && styles["wrapper--caps"],

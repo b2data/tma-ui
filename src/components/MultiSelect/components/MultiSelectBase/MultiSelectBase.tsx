@@ -28,7 +28,7 @@ import { MultiSelectOption } from "../../types";
 import { getValueOptionByHTMLElement, renderChipDefault } from "./utils";
 
 export interface MultiSelectBaseProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "color"> {
   /** Custom function to render Chip component. */
   renderChip?: (props: ChipProps) => JSX.Element;
   /** Ref to the input element within the multiselect base. */

@@ -117,8 +117,28 @@
 .wrapper--editable:empty:before {
   content: attr(data-placeholder);
   color: var(--tg-theme-hint-color);
-  position: absolute;
+  /* position: absolute; */
 }
 .wrapper--editable:empty::after {
   content: "\feff";
+}
+
+.wrapper--hint-color {
+  color: var(--tg-theme-hint-color);
+}
+
+.wrapper--accent-color {
+  color: var(--tg-theme-accent-text-color);
+}
+
+.wrapper--subtitle-color {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.wrapper--header-color {
+  color: var(--tg-theme-section-header-text-color);
+}
+
+.wrapper--error-color {
+  color: var(--tg-theme-destructive-text-color);
 }

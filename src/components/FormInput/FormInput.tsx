@@ -71,7 +71,11 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
 
       setIsFocused(true);
     });
+
     const onBlur = callMultiple(onBlurProp, () => setIsFocused(false));
+
+    const isEmptyHeader =
+      typeof header === "string" ? !header.trim() : !hasReactNode(header);
 
     return (
       <div
@@ -105,7 +109,7 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
             <div className={styles.endAdornment}>{endAdornment}</div>
           )}
         </label>
-        {hasReactNode(header) && platform !== "ios" && (
+        {!isEmptyHeader && platform !== "ios" && (
           <Typography variant="subHeadline" small className={styles.title}>
             {header}
           </Typography>

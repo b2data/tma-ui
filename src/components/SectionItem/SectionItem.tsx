@@ -87,11 +87,17 @@ export const SectionItem = forwardRef(
           <div className={styles.startAdornment}>{startAdornment}</div>
         )}
         <div className={styles.middle}>
-          {hasReactNode(subhead) && (
-            <Typography variant="subHeadline" small className={styles.subhead}>
-              {subhead}
-            </Typography>
-          )}
+          {isValidElement(subhead)
+            ? subhead
+            : hasReactNode(subhead) && (
+                <Typography
+                  variant="subHeadline"
+                  small
+                  className={styles.subhead}
+                >
+                  {subhead}
+                </Typography>
+              )}
           {hasTitle &&
             (isValidElement(children) && !hint && !titleBadge ? (
               children
@@ -106,11 +112,17 @@ export const SectionItem = forwardRef(
                 {hasReactNode(titleBadge) && titleBadge}
               </Typography>
             ))}
-          {hasReactNode(subtitle) && (
-            <Typography variant="subHeadline" small className={styles.subtitle}>
-              {subtitle}
-            </Typography>
-          )}
+          {isValidElement(subtitle)
+            ? subtitle
+            : hasReactNode(subtitle) && (
+                <Typography
+                  variant="subHeadline"
+                  small
+                  className={styles.subtitle}
+                >
+                  {subtitle}
+                </Typography>
+              )}
           {isValidElement(description)
             ? description
             : hasReactNode(description) && (

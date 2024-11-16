@@ -6,8 +6,11 @@ import { usePlatform } from "@/hooks";
 import { FormInput, FormPublicProps } from "@/components/FormInput";
 import { Typography } from "@/components/Typography";
 
-type TextFieldHTMLAttributes = InputHTMLAttributes<HTMLInputElement> &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
+type TextFieldHTMLAttributes = Omit<
+  InputHTMLAttributes<HTMLInputElement> &
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+  "color"
+>;
 
 export interface TextFieldProps
   extends FormPublicProps,

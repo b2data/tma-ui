@@ -39,6 +39,7 @@ export const Collapsible: FC<CollapsibleProps> = ({
   useEffect(() => {
     setState((prev) => prev + 1);
     rootRef.current?.style.setProperty("overflow", "hidden");
+    rootRef.current?.style.removeProperty("visibility");
 
     if (open) {
       handleOpening();
@@ -52,6 +53,9 @@ export const Collapsible: FC<CollapsibleProps> = ({
         "overflow",
         open ? "visible" : "hidden",
       );
+      if (!open) {
+        rootRef.current?.style.setProperty("visibility", "hidden");
+      }
     });
   }, [open]);
 
@@ -60,6 +64,7 @@ export const Collapsible: FC<CollapsibleProps> = ({
       ref={rootRef}
       className={classNames(
         styles.root,
+        // It only works on the first render
         !open && state === 0 && styles["root--hidden"],
       )}
     >

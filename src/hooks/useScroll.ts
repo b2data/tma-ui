@@ -2,17 +2,27 @@ import { useEffect } from "react";
 
 export const useScroll = (key: string, storage: Storage = sessionStorage) => {
   const handleScroll = () => {
-    storage.setItem(key, `${window.scrollY || 0}`);
+    storage.setItem(key, `${document.body.scrollTop || 0}`);
   };
 
   useEffect(() => {
     setTimeout(() => {
-      window.scrollTo(0, +(storage.getItem(key) || 0));
+      document.body.scroll(0, +(storage.getItem(key) || 0));
     }, 0);
 
-    window.addEventListener("scroll", handleScroll);
+    document.body.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.body.removeEventListener("scroll", handleScroll);
     };
+  }, [key]);
+
+  return () => {
+    storage.removeItem(key);
+  };
+};
+
+export const useScrollToTop = (key?: string) => {
+  useEffect(() => {
+    document.body.scroll(0, 0);
   }, [key]);
 };

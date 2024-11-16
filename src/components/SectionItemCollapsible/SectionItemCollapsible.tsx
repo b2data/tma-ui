@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from "react";
+import { FC, isValidElement, ReactNode, useEffect, useState } from "react";
 import styles from "./SectionItemCollapsible.module.css";
 
 import { classNames, hasReactNode } from "@/helpers";
@@ -28,6 +28,8 @@ export interface SectionItemCollapsibleProps {
   className?: string;
   /** Props to be passed to the header */
   headerProps?: Omit<TappableProps, "Component">;
+  /** Rotate degreed of ChevronIcon. */
+  chevronIconRotate?: { collapsed?: number; shown?: number };
 }
 
 /**
@@ -46,6 +48,7 @@ export const SectionItemCollapsible: FC<SectionItemCollapsibleProps> = ({
   onToggle,
   defaultOpen,
   headerProps,
+  chevronIconRotate = { collapsed: 0, shown: -180 },
 }) => {
   const [isOpened, setIsOpened] = useState(Boolean(defaultOpen || open));
 
@@ -75,17 +78,29 @@ export const SectionItemCollapsible: FC<SectionItemCollapsibleProps> = ({
           <Typography variant="text" Component="h6" className={styles.head}>
             {title}
           </Typography>
-          {hasReactNode(hint) && (
-            <Typography variant="caption" className={styles["header--hint"]}>
-              {hint}
-            </Typography>
-          )}
+          {isValidElement(hint)
+            ? hint
+            : hasReactNode(hint) && (
+                <Typography
+                  variant="caption"
+                  className={styles["header--hint"]}
+                >
+                  {hint}
+                </Typography>
+              )}
         </div>
-        <div className={styles["header--adornment"]}>
+        <div
+          className={classNames(
+            styles["header--adornment"],
+            !hasReactNode(endAdornment) && styles["header--endAdornmentEmpty"],
+          )}
+        >
           {endAdornment}
           <ChevronDownIcon
             className={styles["header--chevronDown"]}
-            style={{ transform: `rotate(${isOpened ? "-180deg" : "0deg"})` }}
+            style={{
+              transform: `rotate(${isOpened ? `${chevronIconRotate.shown}deg` : `${chevronIconRotate.collapsed}deg`})`,
+            }}
           />
         </div>
       </Tappable>
