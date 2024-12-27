@@ -115,14 +115,16 @@ export const MultiSelectDropdown = forwardRef<
           }
 
           return (
-            <Fragment key={`${typeof option.value}-${option.label}`}>
+            <Fragment key={`${option.value}-${option.label}`}>
               {renderOption({
                 className: styles.option,
                 children: option.label,
+                description: option.description,
+                startAdornment: option.startAdornment,
                 hovered: focusedOption
                   ? option.value === focusedOption.value
                   : false,
-                readOnly: option.disabled,
+                disabled: option.disabled,
                 selected:
                   value.findIndex(
                     (selectedOption) => selectedOption.value === option.value,

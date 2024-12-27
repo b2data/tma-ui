@@ -32,9 +32,9 @@ export default meta;
 
 const PLATFORM_OPTIONS: MultiSelectOption[] = [
   { value: "mac", label: "macOS" },
-  { value: "linux", label: "Linux" },
-  { value: "windows", label: "Windows" },
-  { value: "ios", label: "iOS" },
+  { value: "linux", label: "Linux", description: "Open-source OS" },
+  { value: "windows", label: "Windows", disabled: true },
+  { value: "ios", label: "iOS", startAdornment: "🍏" },
   { value: "android", label: "Android" },
   { value: "web", label: "Web" },
   { value: "other", label: "Other" },

@@ -193,6 +193,7 @@ export const MultiSelectBase = forwardRef<HTMLDivElement, MultiSelectBaseProps>(
               className: styles.chip,
               value: option.value,
               tabIndex: -1,
+              startAdornment: option.startAdornment,
               endAdornment: (
                 <Tappable
                   Component="div"

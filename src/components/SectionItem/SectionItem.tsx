@@ -61,6 +61,7 @@ export const SectionItem = forwardRef(
       multiline,
       dense,
       readOnly,
+      disabled,
       ...restProps
     }: SectionItemProps,
     ref,
@@ -77,7 +78,8 @@ export const SectionItem = forwardRef(
           hovered && styles["wrapper--hovered"],
           multiline && styles["wrapper--multiline"],
           dense && styles["wrapper--dense"],
-          readOnly && styles["wrapper--no-clickable"],
+          (readOnly || disabled) && styles["wrapper--no-clickable"],
+          disabled && styles["wrapper--disabled"],
           className,
         )}
         readOnly={readOnly}

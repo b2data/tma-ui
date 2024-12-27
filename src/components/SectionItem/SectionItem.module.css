@@ -10,6 +10,10 @@
   cursor: default;
 }
 
+.wrapper--disabled {
+  opacity: 0.2;
+}
+
 .wrapper:hover:not(.wrapper--no-clickable)::before,
 .wrapper--hovered:not(.wrapper--no-clickable)::before {
   content: "";
