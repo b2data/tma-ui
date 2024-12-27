@@ -122,13 +122,14 @@ export const MultiSelectDropdown = forwardRef<
                 hovered: focusedOption
                   ? option.value === focusedOption.value
                   : false,
+                readOnly: option.disabled,
                 selected:
                   value.findIndex(
                     (selectedOption) => selectedOption.value === option.value,
                   ) !== -1,
                 ref: (node: HTMLElement) => setOptionNode(index, node),
                 onMouseDown: (event: MouseEvent<HTMLDivElement>) => {
-                  if (event.defaultPrevented) {
+                  if (event.defaultPrevented || option.disabled) {
                     return;
                   }
 
