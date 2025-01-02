@@ -83,6 +83,7 @@ export const SectionItem = forwardRef(
           className,
         )}
         readOnly={readOnly}
+        disabled={disabled}
         {...restProps}
       >
         {hasReactNode(startAdornment) && (

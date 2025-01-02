@@ -18,6 +18,7 @@ export * from "./InlineButtons";
 export * from "./InlineButtonsItem";
 export * from "./Link";
 export * from "./List";
+export * from "./Menu";
 export * from "./Modal";
 export * from "./MultiSelect";
 export * from "./Placeholder";

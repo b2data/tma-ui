@@ -1,6 +1,6 @@
 {
   "name": "@b2data/tma-ui",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "files": [
     "lib"
@@ -28,6 +28,7 @@
   "license": "MIT",
   "homepage": "https://b2data.github.io/tma-ui",
   "dependencies": {
+    "@floating-ui/react": "^0.27.2",
     "@floating-ui/react-dom": "^2.1.0",
     "dayjs": "^1.11.13",
     "marked": "^15.0.0",
