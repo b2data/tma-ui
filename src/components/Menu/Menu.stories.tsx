@@ -39,6 +39,7 @@ export const WithCustomAction: Story = {
   render: () => (
     <div style={{ height: 300 }}>
       <Menu
+        closeOnClick
         style={{ background: "red", display: "inline" }}
         action={"Open menu"}
       >

@@ -1,4 +1,7 @@
 export * from "./AddIcon";
+export * from "./ArrowDownwardIcon";
+export * from "./ArrowDropDownIcon";
+export * from "./ArrowUpwardIcon";
 export * from "./AttachIcon";
 export * from "./CheckedIcon";
 export * from "./ChevronDownIcon";

@@ -22,11 +22,14 @@ import { classNames } from "@/helpers";
 export interface MenuProps extends Omit<TappableProps, "action"> {
   /** The action element or component that triggers the menu to open */
   action?: ReactNode;
+  /** If `true` the popover will be closed once child content is clicked */
+  closeOnClick?: boolean;
 }
 
 export const Menu = ({
   action = <MoreHorizIcon />,
   className,
+  closeOnClick = true,
   children,
   ...restProps
 }: MenuProps) => {
@@ -64,6 +67,11 @@ export const Menu = ({
             style={floatingStyles}
             aria-labelledby={headingId}
             {...getFloatingProps()}
+            {...(closeOnClick
+              ? {
+                  onClick: () => setIsOpen(false),
+                }
+              : {})}
           >
             {children}
           </div>
