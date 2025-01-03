@@ -56,7 +56,7 @@ export const Menu = ({
 
   return (
     <>
-      <Tappable ref={refs.setReference} {...getReferenceProps()} {...restProps}>
+      <Tappable ref={refs.setReference} {...getReferenceProps()}>
         {action}
       </Tappable>
       {isOpen && (
@@ -72,6 +72,7 @@ export const Menu = ({
                   onClick: () => setIsOpen(false),
                 }
               : {})}
+            {...restProps}
           >
             {children}
           </div>
