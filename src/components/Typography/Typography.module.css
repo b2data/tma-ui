@@ -117,7 +117,7 @@
 .wrapper--editable:empty:before {
   content: attr(data-placeholder);
   color: var(--tg-theme-hint-color);
-  /* position: absolute; */
+  opacity: .5;
 }
 .wrapper--editable:empty::after {
   content: "\feff";
