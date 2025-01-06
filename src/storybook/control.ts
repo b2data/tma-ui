@@ -20,11 +20,3 @@ export const setControlsTypes = (controls: string[], type: ControlTypes) => {
 export const hideControls = (...controls: string[]) => {
   return setControlsTypes(controls, undefined);
 };
-
-export const textControl = {
-  type: "text",
-};
-
-export const hiddenControl = {
-  type: undefined,
-};

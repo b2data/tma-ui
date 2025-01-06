@@ -24,6 +24,7 @@ export * from "./MultiSelect";
 export * from "./Placeholder";
 export * from "./Popper";
 export * from "./Progress";
+export * from "./PullToRefresh";
 export * from "./Radio";
 export * from "./Rating";
 export * from "./Ripple";

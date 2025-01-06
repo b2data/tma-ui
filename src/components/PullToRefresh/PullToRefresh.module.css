@@ -1,0 +1,36 @@
+.wrapper {
+  position: relative;
+}
+
+.control {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  display: none;
+}
+
+.pulling .control,
+.aborting .control,
+.reached .control,
+.refreshing .control,
+.restoring .control {
+  display: flex;
+}
+
+.pulling .spinner,
+.aborting .spinner,
+.reached .spinner {
+  display: none;
+}
+
+.spinner {
+  transform-origin: center center;
+  animation: pull-to-refresh-rotate 2s linear infinite;
+}
+
+@keyframes pull-to-refresh-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,4 +1,10 @@
-import { forwardRef, HTMLAttributes, ReactNode, useState } from "react";
+import {
+  forwardRef,
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+  useState,
+} from "react";
 import styles from "./FormInput.module.css";
 
 import { classNames, callMultiple, hasReactNode } from "@/helpers";
@@ -23,7 +29,7 @@ export interface FormPublicProps {
 export interface FormInputProps
   extends FormPublicProps,
     HTMLAttributes<HTMLLabelElement> {
-  labelRef?: React.RefObject<HTMLLabelElement>;
+  labelRef?: RefObject<HTMLLabelElement>;
 }
 
 const platformStyles = {
