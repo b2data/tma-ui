@@ -15,5 +15,6 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     children: "Link content",
+    href: "//ya.ru",
   },
 } satisfies Story;
