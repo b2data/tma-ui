@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PullToRefresh } from "./PullToRefresh";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const meta = {
   title: "Misc/PullToRefresh",
   component: PullToRefresh,
   argTypes: {
-    scrollable: {
-      description: "Scrollable component",
-      table: { defaultValue: { summary: "document.body" } },
+    getScrollable: {
+      description: "Function to get scrollable component",
+      table: { defaultValue: { summary: "() => document.body" } },
     },
+
     refresh: {
       description: "Async callback for refresh",
     },
@@ -39,13 +40,6 @@ export const Playground: Story = {
   },
   render: (props) => {
     const ref = useRef<HTMLDivElement | null>(null);
-    const [state, setState] = useState(0);
-
-    useEffect(() => {
-      if (!ref.current || !state) {
-        setState(state + 1);
-      }
-    }, [state]);
 
     return (
       <div
@@ -53,9 +47,8 @@ export const Playground: Story = {
         style={{ height: 300, border: "1px solid", overflowY: "auto" }}
       >
         <PullToRefresh
-          key={state}
           {...props}
-          scrollable={ref.current as HTMLDivElement}
+          getScrollable={() => ref.current as HTMLDivElement}
         >
           <div style={{ padding: 100 }}>Content 1</div>
           <div style={{ padding: 100 }}>Content 2</div>

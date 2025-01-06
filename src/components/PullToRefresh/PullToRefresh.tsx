@@ -7,11 +7,22 @@ import styles from "./PullToRefresh.module.css";
 
 export interface PullToRefreshProps
   extends PropsWithChildren<
-    Partial<Omit<PullToRefreshArgs, "container" | "elControl" | "refresh">> &
+    Partial<
+      Omit<
+        PullToRefreshArgs,
+        "container" | "elControl" | "refresh" | "scrollable"
+      >
+    > &
       Pick<PullToRefreshArgs, "refresh">
-  > {}
+  > {
+  getScrollable?: () => HTMLElement;
+}
 
-export const PullToRefresh = ({ children, ...props }: PullToRefreshProps) => {
+export const PullToRefresh = ({
+  children,
+  getScrollable = () => document.body,
+  ...props
+}: PullToRefreshProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -19,7 +30,7 @@ export const PullToRefresh = ({ children, ...props }: PullToRefreshProps) => {
       ? pullToRefresh({
           container: ref.current,
           elControl: ref.current?.childNodes[0] as HTMLElement,
-          scrollable: document.body,
+          scrollable: getScrollable() as HTMLElement,
           threshold: 150,
           onStateChange: () => {},
           ...props,
