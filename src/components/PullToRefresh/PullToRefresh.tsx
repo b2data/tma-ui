@@ -6,7 +6,10 @@ import { Spinner } from "../Spinner";
 import styles from "./PullToRefresh.module.css";
 
 export interface PullToRefreshProps
-  extends PropsWithChildren<PullToRefreshArgs> {}
+  extends PropsWithChildren<
+    Partial<Omit<PullToRefreshArgs, "container" | "elControl" | "refresh">> &
+      Pick<PullToRefreshArgs, "refresh">
+  > {}
 
 export const PullToRefresh = ({ children, ...props }: PullToRefreshProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -14,9 +17,12 @@ export const PullToRefresh = ({ children, ...props }: PullToRefreshProps) => {
   useEffect(() => {
     const destroy = ref.current
       ? pullToRefresh({
-          ...props,
           container: ref.current,
           elControl: ref.current?.childNodes[0] as HTMLElement,
+          scrollable: document.body,
+          threshold: 150,
+          onStateChange: () => {},
+          ...props,
         })
       : null;
 

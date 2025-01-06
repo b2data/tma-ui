@@ -23,11 +23,6 @@ const meta = {
         "Callback fires when state changed. PullToRefreshState in [pulling,aborting,reached,refreshing,restoring,null]",
     },
   },
-  parameters: {
-    controls: {
-      include: ["refresh", "scrollable", "threshold", "onStateChange"],
-    },
-  },
 } satisfies Meta<typeof PullToRefresh>;
 
 export default meta;
@@ -41,7 +36,7 @@ export const Playground: Story = {
         setTimeout(resolve, 2000);
       });
     },
-  } as any,
+  },
   render: (props) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [state, setState] = useState(0);

@@ -4,15 +4,6 @@ import styles from "../PullToRefresh.module.css";
 import { PullToRefreshArgs, PullToRefreshState } from "./model";
 
 export const pullToRefresh = (props: PullToRefreshArgs) => {
-  const defaultProps = {
-    scrollable: document.body,
-    threshold: 150,
-    onStateChange: () => {
-      /* noop */
-    },
-  };
-
-  props = { ...defaultProps, ...props };
   const { container, scrollable, threshold, refresh, onStateChange } = props;
 
   let distance: number | null = null;
