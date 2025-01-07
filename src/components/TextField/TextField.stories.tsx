@@ -12,6 +12,20 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (DecoratorStory) => (
+      <List
+        style={{
+          width: 400,
+          maxWidth: "100%",
+          margin: "auto",
+          padding: 10,
+        }}
+      >
+        <DecoratorStory />
+      </List>
+    ),
+  ],
 } satisfies Meta<typeof TextField>;
 
 export default meta;
@@ -22,18 +36,6 @@ export const Playground: Story = {
     header: "Input",
     placeholder: "Placeholder",
   },
-  decorators: [
-    (DecoratorStory) => (
-      <List
-        style={{
-          background: "var(--tg-theme-secondary-bg-color)",
-          padding: 10,
-        }}
-      >
-        <DecoratorStory />
-      </List>
-    ),
-  ],
 } satisfies Story;
 
 export const Inputs: Story = {
@@ -41,15 +43,7 @@ export const Inputs: Story = {
     const [value, setValue] = useState("");
 
     return (
-      <List
-        style={{
-          width: 400,
-          maxWidth: "100%",
-          margin: "auto",
-          background: "var(--tg-theme-section-bg-color)",
-          padding: 10,
-        }}
-      >
+      <>
         <TextField
           header="Input"
           startAdornment="a"
@@ -71,6 +65,7 @@ export const Inputs: Story = {
           placeholder="I am disabled input"
           value="DDD"
         />
+        <TextField type="datetime-local" header="Datetime" />
         <TextField
           status="focused"
           header="Input"
@@ -89,7 +84,7 @@ export const Inputs: Story = {
             ) : undefined
           }
         />
-      </List>
+      </>
     );
   },
 } satisfies Story;
@@ -99,14 +94,7 @@ export const Textarea: Story = {
     const [value, setValue] = useState("");
 
     return (
-      <List
-        style={{
-          width: 400,
-          maxWidth: "100%",
-          margin: "auto",
-          background: "var(--tg-theme-section-bg-color)",
-        }}
-      >
+      <>
         <TextField
           multiline
           header="Textarea"
@@ -155,7 +143,7 @@ export const Textarea: Story = {
             ) : undefined
           }
         />
-      </List>
+      </>
     );
   },
 } satisfies Story;
