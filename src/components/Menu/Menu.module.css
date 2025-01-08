@@ -4,4 +4,5 @@
     0 0 2px 1px rgba(0, 0, 0, 0.06);
   outline: none;
   z-index: 5;
+  background-color: var(--tg-theme-secondary-bg-color);
 }
