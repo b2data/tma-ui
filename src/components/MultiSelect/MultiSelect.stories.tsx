@@ -44,6 +44,7 @@ const decorator: Decorator = (Story) => (
   <List
     style={{
       minHeight: "360px",
+      width: "360px",
       background: "var(--tg-theme-secondary-bg-color)",
     }}
   >

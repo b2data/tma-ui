@@ -9,5 +9,6 @@ export type MultiSelectOption = {
   disabled?: boolean;
   description?: string;
   startAdornment?: ReactNode;
+  multiline?: boolean;
   [index: string]: any;
 };

@@ -121,6 +121,7 @@ export const MultiSelectDropdown = forwardRef<
                 children: option.label,
                 description: option.description,
                 startAdornment: option.startAdornment,
+                multiline: option.multiline ?? true,
                 hovered: focusedOption
                   ? option.value === focusedOption.value
                   : false,
