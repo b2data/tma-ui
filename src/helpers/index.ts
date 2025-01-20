@@ -1,6 +1,7 @@
 export * from "./accessibility";
 export * from "./classNames";
 export * from "./color";
+export * from "./documents";
 export * from "./dom";
 export * from "./duration";
 export * from "./equal";
