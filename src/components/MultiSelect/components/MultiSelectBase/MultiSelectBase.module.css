@@ -33,7 +33,7 @@
 }
 
 .input::placeholder {
-  color: var(--tg-theme-hint-color);
+  color: #cbcbcb77;
 }
 
 .input[readonly] {

@@ -62,7 +62,12 @@
   box-shadow: 0 0 0 2px rgba(128, 128, 128, 0.5);
 }
 
-.wrapper--base.wrapper--error .title {
+.helperText {
+  color: #cbcbcb;
+}
+
+.wrapper--base.wrapper--error .title,
+.wrapper--error .helperText {
   color: var(--tg-theme-destructive-text-color);
 }
 
@@ -85,4 +90,8 @@
 
 .wrapper--ios.wrapper--error .body {
   box-shadow: 0 0 0 1.5px var(--tg-theme-destructive-text-color);
+}
+
+.wrapper--ios .helperText {
+  padding: 0 12px;
 }

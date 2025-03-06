@@ -77,6 +77,7 @@ export const useMultiSelect = ({
       disabled,
     });
 
+  const [focused, setFocused] = useState(false);
   const [opened, setOpened] = useState(false);
   const [options, setOptions] = useState<MultiSelectOption[]>(() =>
     opened
@@ -167,6 +168,8 @@ export const useMultiSelect = ({
 
     // States for dropdown
     options,
+    focused,
+    setFocused,
     opened,
     setOpened: handleSetOpened,
     focusedOption,

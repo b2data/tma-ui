@@ -22,6 +22,7 @@ export const Playground: Story = {
     return (
       <FileInput
         multiple
+        readOnly
         onChange={(event) => setFiles(event.target.files)}
         {...args}
       >

@@ -65,6 +65,10 @@ export const Inputs: Story = {
           placeholder="I am disabled input"
           value="DDD"
         />
+        <TextField
+          header="Input"
+          helperText="Helper Text"
+        />
         <TextField type="datetime-local" header="Datetime" />
         <TextField
           status="focused"
@@ -123,6 +127,11 @@ export const Textarea: Story = {
           multiline
           header="Textarea"
           value="I am disabled value"
+        />
+        <TextField
+          header="Textarea"
+          multiline
+          helperText="Helper Text"
         />
         <TextField
           status="focused"

@@ -35,6 +35,7 @@ export const TextField = forwardRef(
       wrapperProps,
       disabled,
       multiline,
+      helperText,
       ...restProps
     }: TextFieldProps,
     ref,
@@ -42,30 +43,34 @@ export const TextField = forwardRef(
     const platform = usePlatform();
 
     return (
-      <FormInput
-        header={header}
-        startAdornment={startAdornment}
-        endAdornment={endAdornment}
-        status={status}
-        disabled={disabled}
-        wrapperProps={wrapperProps}
-        className={classNames(
-          styles.wrapper,
-          platform === "ios" && styles["wrapper--ios"],
-          multiline && styles["wrapper--multiline"],
-          className,
-        )}
-      >
-        <Typography
-          ref={ref}
-          variant={platform === "ios" ? "text" : "subHeadline"}
-          Component={multiline ? "textarea" : "input"}
-          className={multiline ? styles.textarea : styles.input}
-          type={type}
+      <>
+        <FormInput
+          header={header}
+          startAdornment={startAdornment}
+          endAdornment={endAdornment}
+          status={status}
           disabled={disabled}
-          {...restProps}
-        />
-      </FormInput>
+          wrapperProps={wrapperProps}
+          helperText={helperText}
+          className={classNames(
+            styles.wrapper,
+            platform === "ios" && styles["wrapper--ios"],
+            multiline && styles["wrapper--multiline"],
+            className,
+          )}
+          required={restProps.required}
+        >
+          <Typography
+            ref={ref}
+            variant={platform === "ios" ? "text" : "subHeadline"}
+            Component={multiline ? "textarea" : "input"}
+            className={multiline ? styles.textarea : styles.input}
+            type={type}
+            disabled={disabled}
+            {...restProps}
+          />
+        </FormInput>
+      </>
     );
   },
 );

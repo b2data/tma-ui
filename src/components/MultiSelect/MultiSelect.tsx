@@ -81,6 +81,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       wrapperProps,
       className,
       disabled,
+      readOnly,
       onOpen,
       onClose,
 
@@ -119,6 +120,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       inputValue,
       clearInput,
       onInputChange,
+      focused,
+      setFocused,
 
       // Dropdown props
       options,
@@ -158,11 +161,15 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     const dropdownScrollBoxRef = useRef<HTMLDivElement>(null);
 
     const handleFocus = () => {
-      setOpened(true);
-      setFocusedOptionIndex(null);
+      setFocused(true);
+      if (!readOnly) {
+        setOpened(true);
+        setFocusedOptionIndex(null);
+      }
     };
 
     const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+      setFocused(false);
       if (!event.defaultPrevented && !creatable) {
         event.preventDefault();
       }
@@ -224,7 +231,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     };
 
     const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-      if (event.defaultPrevented) {
+      if (event.defaultPrevented || readOnly) {
         return;
       }
 
@@ -308,7 +315,9 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
     }, [setFocusedOptionIndex]);
 
     const toggleOpened = () => {
-      setOpened(!opened);
+      if (!readOnly) {
+        setOpened(!opened);
+      }
     };
 
     const handleClickOutside = useCallback(() => {
@@ -325,7 +334,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       opened ? dropdownScrollBoxRef : null,
     );
 
-    const controlledStatus = status || (opened ? "focused" : "default");
+    const controlledStatus =
+      status || (opened || focused ? "focused" : "default");
 
     return (
       <FormInput
@@ -347,6 +357,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
         status={controlledStatus}
         disabled={disabled}
         wrapperProps={wrapperProps}
+        required={restProps.required}
+        helperText={restProps.helperText}
         className={classNames(styles.wrapper, className)}
       >
         <MultiSelectBase
@@ -370,6 +382,8 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
           aria-expanded={opened}
           aria-controls={dropdownAriaId}
           aria-haspopup="listbox"
+          readOnly={readOnly}
+          disabled={disabled}
         />
         {opened && (
           <MultiSelectDropdown

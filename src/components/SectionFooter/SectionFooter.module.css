@@ -1,5 +1,6 @@
 .wrapper {
   padding: 12px 16px;
+  color: var(--tg-theme-section-header-text-color);
 }
 
 .wrapper--ios {
@@ -13,8 +14,4 @@
 
 .wrapper--ios.wrapper--centered {
   padding: 16px 16px 0;
-}
-
-.text {
-  color: var(--tg-theme-section-header-text-color);
 }

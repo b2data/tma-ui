@@ -31,7 +31,6 @@ export const SectionFooter = ({
       <Typography
         variant={platform === "ios" ? "caption" : "subHeadline"}
         small={platform !== "ios"}
-        className={styles.text}
       >
         {children}
       </Typography>

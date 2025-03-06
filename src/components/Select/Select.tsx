@@ -42,6 +42,7 @@ export const Select = ({
         className,
       )}
       wrapperProps={wrapperProps}
+      required={restProps.required}
     >
       <Typography
         variant={platform === "ios" ? "text" : "subHeadline"}

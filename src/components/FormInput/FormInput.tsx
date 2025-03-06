@@ -24,6 +24,10 @@ export interface FormPublicProps {
   disabled?: boolean;
   /** Additional class name for the root element. */
   wrapperProps?: HTMLAttributes<HTMLDivElement>;
+  /** Helper text */
+  helperText?: ReactNode;
+  /** Indicates if the input is required. */
+  required?: boolean;
 }
 
 export interface FormInputProps
@@ -61,6 +65,8 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
       onFocus: onFocusProp,
       onBlur: onBlurProp,
       labelRef,
+      helperText,
+      required,
       ...restProps
     },
     ref,
@@ -118,6 +124,19 @@ export const FormInput = forwardRef<HTMLDivElement, FormInputProps>(
         {!isEmptyHeader && platform !== "ios" && (
           <Typography variant="subHeadline" small className={styles.title}>
             {header}
+            {required && (
+              <span
+                aria-hidden="true"
+                style={{ color: "var(--tg-theme-destructive-text-color)" }}
+              >
+                *
+              </span>
+            )}
+          </Typography>
+        )}
+        {hasReactNode(helperText) && (
+          <Typography variant="caption" small className={styles.helperText}>
+            {helperText}
           </Typography>
         )}
       </div>
