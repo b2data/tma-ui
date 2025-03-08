@@ -52,10 +52,7 @@ export interface ModalProps
 
 type ModalWithComponents = ForwardRefExoticComponent<
   ModalProps & RefAttributes<HTMLDivElement>
-> & {
-  Header: typeof ModalHeader;
-  Overlay: typeof Drawer.Overlay;
-};
+> & { Header: typeof ModalHeader; Overlay: typeof Drawer.Overlay };
 
 /**
  * Modal component, providing a flexible dialog framework with customizable content and interaction models.

@@ -20,7 +20,7 @@ export class EventManager {
 
     collection.set(listener, true);
 
-    if (process.env.NODE_ENV !== "production") {
+    if (!import.meta.env.PROD) {
       if (collection.size > this.maxListeners && !this.warnOnce) {
         this.warnOnce = true;
         console.warn(

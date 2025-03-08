@@ -154,7 +154,7 @@ export const MultiSelect = forwardRef<HTMLDivElement, MultiSelectProps>(
       onClose,
     });
 
-    const labelRef = useRef(null);
+    const labelRef = useRef<HTMLLabelElement | null>(null);
     const rootRef = useRef(null);
 
     const dropdownAriaId = useId();

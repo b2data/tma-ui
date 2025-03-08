@@ -4,6 +4,7 @@ import {
   InputHTMLAttributes,
   KeyboardEvent,
   MouseEvent,
+  ReactElement,
   RefObject,
 } from "react";
 import styles from "./MultiSelectBase.module.css";
@@ -30,9 +31,9 @@ import { getValueOptionByHTMLElement, renderChipDefault } from "./utils";
 export interface MultiSelectBaseProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "color"> {
   /** Custom function to render Chip component. */
-  renderChip?: (props: ChipProps) => JSX.Element;
+  renderChip?: (props: ChipProps) => ReactElement;
   /** Ref to the input element within the multiselect base. */
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<HTMLInputElement | null>;
   /** Array of selected options (chips). */
   chipsValue: MultiSelectOption[];
   /** Callback function to add an option based on text input. */
@@ -105,7 +106,7 @@ export const MultiSelectBase = forwardRef<HTMLDivElement, MultiSelectBaseProps>(
             }
 
             event.preventDefault();
-            inputRef.current.focus();
+            inputRef.current?.focus();
             onRemoveChipOption(option);
           }
           break;

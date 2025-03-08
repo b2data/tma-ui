@@ -25,7 +25,7 @@ export interface PopperProps
     >,
     HTMLAttributes<HTMLDivElement> {
   /** Reference to the target element or virtual element for precise positioning. */
-  targetRef: RefObject<HTMLElement> | VirtualElement;
+  targetRef: RefObject<HTMLElement | null> | VirtualElement;
 
   /** Defines the root element type of the Popper, allowing for semantic customization. */
   Component?: ElementType;

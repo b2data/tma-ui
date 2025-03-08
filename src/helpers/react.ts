@@ -1,11 +1,4 @@
-import {
-  Children,
-  isValidElement,
-  ReactNode,
-  MutableRefObject,
-  Ref,
-  RefObject,
-} from "react";
+import { Children, isValidElement, ReactNode, Ref, RefObject } from "react";
 
 export const hasReactNode = (value: ReactNode): boolean => {
   return (
@@ -69,14 +62,14 @@ export const setRef = <T>(element: T, ref?: Ref<T>): void => {
     if (typeof ref === "function") {
       ref(element);
     } else {
-      (ref as MutableRefObject<T>).current = element;
+      (ref as RefObject<T>).current = element;
     }
   }
 };
 
 export const multipleRef = <T>(
   ...refs: Array<Ref<T> | undefined>
-): RefObject<T> => {
+): RefObject<T | null> => {
   let current: T | null = null;
   return {
     get current() {

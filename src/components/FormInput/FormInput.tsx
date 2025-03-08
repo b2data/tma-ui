@@ -33,7 +33,7 @@ export interface FormPublicProps {
 export interface FormInputProps
   extends FormPublicProps,
     HTMLAttributes<HTMLLabelElement> {
-  labelRef?: RefObject<HTMLLabelElement>;
+  labelRef?: RefObject<HTMLLabelElement | null>;
 }
 
 const platformStyles = {

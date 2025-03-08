@@ -1,10 +1,10 @@
-import { MutableRefObject, Ref, useMemo, useRef } from "react";
+import { RefObject, Ref, useMemo, useRef } from "react";
 
 import { setRef } from "@/helpers";
 
 export function useExternRef<T>(
   ...externRefs: Array<Ref<T> | undefined | false>
-): MutableRefObject<T | null> {
+): RefObject<T | null> {
   const stableRef = useRef<T | null>(null);
 
   return useMemo(

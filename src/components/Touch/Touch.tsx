@@ -138,7 +138,7 @@ export const Touch = ({
     },
     { capture: useCapture, passive: false },
   );
-  const containerRef = useRef();
+  const containerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = containerRef.current;

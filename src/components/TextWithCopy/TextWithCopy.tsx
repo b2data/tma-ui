@@ -1,12 +1,12 @@
 import { CheckedIcon, CopyIcon } from "@/icons";
 import { classNames } from "@/helpers";
-import { MutableRefObject, FC, useRef, useState, useMemo } from "react";
+import { RefObject, FC, useRef, useState, useMemo } from "react";
 import { Typography, TypographyProps } from "../Typography";
 
 import styles from "./TextWithCopy.module.css";
 
 const handleInputCopy = (
-  inputRef?: MutableRefObject<HTMLInputElement | null>,
+  inputRef?: RefObject<HTMLInputElement | null>,
 ) => {
   const value = inputRef?.current?.value;
 
