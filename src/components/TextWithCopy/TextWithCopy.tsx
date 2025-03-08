@@ -5,9 +5,7 @@ import { Typography, TypographyProps } from "../Typography";
 
 import styles from "./TextWithCopy.module.css";
 
-const handleInputCopy = (
-  inputRef?: RefObject<HTMLInputElement | null>,
-) => {
+const handleInputCopy = (inputRef?: RefObject<HTMLInputElement | null>) => {
   const value = inputRef?.current?.value;
 
   if (navigator.clipboard) {
