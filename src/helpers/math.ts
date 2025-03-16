@@ -3,26 +3,27 @@ export const clamp = (value: number, min: number, max: number) => {
 };
 
 export const formatNumber = (number: string | number, decimals: number = 2) => {
-  number = `${+number * Math.pow(10, decimals)}`;
-  if (number.length <= decimals) return number;
-
-  const part1 = number.substring(0, number.length - decimals);
-  const part2 = Number(
-    number.substring(number.length - decimals, number.length),
+  const integer = Math.floor(+number);
+  const fractional = Math.round(
+    (+number - Math.floor(+number)) * Math.pow(10, decimals),
   );
 
-  const coins = part1
+  if (!integer) {
+    return "0." + `${fractional}`.padStart(decimals, "0");
+  }
+
+  const part1 = `${integer}`
     ?.split("")
     ?.reverse()
     ?.join("")
     ?.match(/.{1,3}/g)
-    ?.map((i: string) => i.split("").reverse().join(""))
+    ?.map((i) => i.split("").reverse().join(""))
     ?.reverse()
     ?.join(" ");
 
-  const coop = part2 > 10 ? part2 : part2 > 0 ? `0${part2}` : "";
+  const part2 = `${fractional}`.padStart(decimals, "0");
 
-  return `${coins}${coop ? `.${coop}` : ""}`;
+  return `${part1}${fractional ? `.${part2}` : ""}`;
 };
 
 export const formatJettonBalance = (
