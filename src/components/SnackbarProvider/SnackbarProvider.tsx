@@ -1,8 +1,16 @@
-import { useState, FC, PropsWithChildren, useMemo } from "react";
+import {
+  useState,
+  FC,
+  PropsWithChildren,
+  useMemo,
+  isValidElement,
+  cloneElement,
+} from "react";
 import { Snackbar } from "../Snackbar";
 import { useDeepEqualMemo } from "../../hooks";
 import { WarningIcon } from "../../icons";
 import { SnackbarContext, SnackbarMessage } from "./context";
+import { omit } from "ramda";
 
 export const SnackbarProvider: FC<
   PropsWithChildren<{
@@ -44,7 +52,21 @@ export const SnackbarProvider: FC<
       value={{ messages, enqueueSnackbar, enqueueSnackbarError }}
     >
       {children}
-      {Boolean(current) && <Snackbar {...current} onClose={handleClose} />}
+      {Boolean(current) && (
+        <Snackbar
+          {...omit(["closeOnEndAdornmentClick"], current)}
+          endAdornment={
+            current?.closeOnEndAdornmentClick &&
+            isValidElement(current.endAdornment)
+              ? cloneElement(current.endAdornment, {
+                  // @ts-ignore
+                  onClick: handleClose,
+                })
+              : current.endAdornment
+          }
+          onClose={handleClose}
+        />
+      )}
     </SnackbarContext.Provider>
   );
 };

@@ -1,7 +1,9 @@
 import { createContext, useContext } from "react";
 import { SnackbarProps } from "../Snackbar";
 
-export type SnackbarMessage = Omit<SnackbarProps, "onClose">;
+export type SnackbarMessage = Omit<SnackbarProps, "onClose"> & {
+  closeOnEndAdornmentClick?: boolean;
+};
 
 interface SnackbarContextType {
   messages: SnackbarMessage[];

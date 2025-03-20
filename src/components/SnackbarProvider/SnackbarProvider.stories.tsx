@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SnackbarProvider } from "./SnackbarProvider";
 import { Button } from "@/components/Button";
 import { useSnackbar } from "./context";
+import { IconButton } from "../IconButton";
 
 const meta = {
   title: "Overlays/SnackbarProvider",
@@ -22,6 +23,18 @@ const Content = () => {
       </Button>
       <Button onClick={() => enqueueSnackbarError("Test error")}>
         Show error snackbar
+      </Button>
+
+      <Button
+        onClick={() =>
+          enqueueSnackbar({
+            children: "With close",
+            endAdornment: <IconButton>X</IconButton>,
+            closeOnEndAdornmentClick: true,
+          })
+        }
+      >
+        Show with close
       </Button>
     </>
   );
