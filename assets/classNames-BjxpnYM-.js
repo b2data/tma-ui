@@ -1,0 +1,1 @@
+function e(...a){const c=[];return a.forEach(s=>{if(s)switch(typeof s){case"string":c.push(s);break;case"object":Object.keys(s).forEach(r=>{s[r]&&c.push(r)});break;default:c.push(`${s}`)}}),c.join(" ")}export{e as c};

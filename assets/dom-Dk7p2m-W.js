@@ -1,0 +1,1 @@
+import{i as l}from"./floating-ui.utils.dom-C54ba6qF.js";const o=!!(typeof window<"u"&&window.document&&window.document.createElement),r=(n,t)=>{const e=n[t];return l(e)?e:null},s=(n,t)=>{let e=null;switch(t){case"left":e=n.previousElementSibling;break;case"right":e=n.nextElementSibling;break;default:return null}return l(e)?e:null};export{s as a,o as c,r as g};

@@ -1,0 +1,1 @@
+const n=t=>typeof t=="object"&&t!==null,s=(t,r)=>{if(t===r)return!0;if(t==null||r==null||!n(t)&&!n(r))return!1;if(n(t)&&n(r)){if(Object.keys(t).length!==Object.keys(r).length)return!1;for(const e in t)if(Object.prototype.hasOwnProperty.call(t,e)&&Object.prototype.hasOwnProperty.call(r,e)){if(!s(t[e],r[e]))return!1}else return!1;return!0}return!1};export{s as i};
